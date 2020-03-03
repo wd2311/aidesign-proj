@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Segment, Button } from 'semantic-ui-react';
 
 class RecList extends Component {
-  
+
   render() {
     return (
       <div>
@@ -11,7 +11,8 @@ class RecList extends Component {
                 <Segment>
                     <p>{item.title}</p>
                     <p><i>Can add description, etc.</i></p>
-                    <Button>Add to Shopping List [This button doesn't work yet]</Button>
+                    <button>Add to Shopping List [This button doesn't work yet]</button>
+                    <div>I added this!</div>
                 </Segment>
             )
         })}
