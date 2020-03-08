@@ -12,18 +12,11 @@ import {
 import ReactStars from "react-stars";
 
 function RecipeCell(props) {
-  const { name, description, src, stars } = props;
+  const { name, description, src, stars, id } = props.recipe;
+  const { onSelection, inCart } = props;
 
   return (
-    <Card
-      sx={{ borderRadius: 3 }}
-      flex="0 0 auto"
-      mx={3}
-      my={3}
-      width={200}
-      px={0}
-      pt={0}
-    >
+    <Card sx={{ borderRadius: 3 }} my={3} mr={3} width={200} px={0} pt={0}>
       <Flex width="100%" alignItems="stretch" flexDirection="column">
         <Image
           src={src}
@@ -45,7 +38,19 @@ function RecipeCell(props) {
           <Text fontSize={1} mb={2} color="lightgrey">
             {description}
           </Text>
-          <Button>Add to Cart</Button>
+          <Button
+            sx={
+              inCart
+                ? { backgroundColor: "red" }
+                : { ":active": { backgroundColor: "secondary" } }
+            }
+            onClick={() => {
+              console.log(id);
+              onSelection(id);
+            }}
+          >
+            {inCart ? "Remove From Cart" : "Add to Cart"}
+          </Button>
         </Flex>
       </Flex>
     </Card>

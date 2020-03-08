@@ -9,11 +9,23 @@ import {
   Image,
   Card
 } from "rebass/styled-components";
+import RecipeCell from "./RecipeCell.js";
 
 function RecipeList(props) {
-  const {recipes} = props;
+  const { recipes, onSelection, isCart } = props;
   return (
-    <div> This is a recipe list </div>
+    <Flex flexWrap="wrap">
+      {Object.entries(recipes).map(([id, recipe]) => {
+        return (
+          <RecipeCell
+            key={id}
+            recipe={recipe}
+            onSelection={onSelection}
+            inCart={isCart}
+          />
+        );
+      })}
+    </Flex>
   );
 }
 

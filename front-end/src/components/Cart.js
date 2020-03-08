@@ -7,20 +7,29 @@ import {
   Button,
   Link,
   Image,
-  Card,
-} from 'rebass/styled-components'
+  Card
+} from "rebass/styled-components";
+import RecipeList from "./RecipeList";
+
+function EmptyCell() {
+  return (
+    <Box bg="lightgrey" mt={3} p={3} sx={{ borderRadius: 3 }}>
+      Cart is Empty
+    </Box>
+  );
+}
 
 function Cart(props) {
-  console.log(props.t)
+  const { recipes, onSelection } = props;
   return (
-    <Box
-      p={3}
-      width={1/8}
-      color='white'
-      bg={props.color}>
-      {props.t}
-      </Box>
-
+    <Flex width={1 / 3} flexDirection="column">
+      <Heading>Cart</Heading>
+      {recipes.length === 0 ? (
+        <EmptyCell />
+      ) : (
+        <RecipeList onSelection={onSelection} isCart={true} recipes={recipes} />
+      )}
+    </Flex>
   );
 }
 
