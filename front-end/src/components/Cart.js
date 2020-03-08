@@ -24,7 +24,7 @@ function Cart(props) {
   return (
     <Flex width={1 / 3} flexDirection="column">
       <Heading>Cart</Heading>
-      {recipes.length === 0 ? (
+      {Object.keys(recipes).length === 0 ? (
         <EmptyCell />
       ) : (
         <RecipeList onSelection={onSelection} isCart={true} recipes={recipes} />
