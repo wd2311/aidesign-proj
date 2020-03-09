@@ -3,6 +3,7 @@ import Cart from "./components/Cart.js";
 import RecipeList from "./components/RecipeList.js";
 import Navbar from "./components/Navbar.js";
 import { ThemeProvider } from "styled-components";
+import staticRecRecipes from "./placeholderRecipes.js";
 import {
   Box,
   Flex,
@@ -15,73 +16,6 @@ import {
 } from "rebass/styled-components";
 
 import preset from "@rebass/preset";
-
-const staticRecRecipes = {
-  1: {
-    name: "Spegetti and Meatballs",
-    description:
-      "A delicious helping of spagetti nice and good very delicious. This spagetti will make you very pleased indeed.",
-    src: "meetballs.jpg",
-    stars: 4,
-    id: 1
-  },
-  2: {
-    name: "Spegetti and Meatballs",
-    description:
-      "A delicious helping of spagetti nice and good very delicious. This spagetti will make you very pleased indeed.",
-    src: "meetballs.jpg",
-    stars: 4,
-    id: 2
-  },
-  3: {
-    name: "Spegetti and Meatballs",
-    description:
-      "A delicious helping of spagetti nice and good very delicious. This spagetti will make you very pleased indeed.",
-    src: "meetballs.jpg",
-    stars: 4,
-    id: 3
-  },
-  4: {
-    name: "Spegetti and Meatballs",
-    description:
-      "A delicious helping of spagetti nice and good very delicious. This spagetti will make you very pleased indeed.",
-    src: "meetballs.jpg",
-    stars: 4,
-    id: 4
-  },
-  5: {
-    name: "Spegetti and Meatballs",
-    description:
-      "A delicious helping of spagetti nice and good very delicious. This spagetti will make you very pleased indeed.",
-    src: "meetballs.jpg",
-    stars: 4,
-    id: 5
-  },
-  6: {
-    name: "Spegetti and Meatballs",
-    description:
-      "A delicious helping of spagetti nice and good very delicious. This spagetti will make you very pleased indeed.",
-    src: "meetballs.jpg",
-    stars: 4,
-    id: 6
-  },
-  7: {
-    name: "Spegetti and Meatballs",
-    description:
-      "A delicious helping of spagetti nice and good very delicious. This spagetti will make you very pleased indeed.",
-    src: "meetballs.jpg",
-    stars: 4,
-    id: 7
-  },
-  8: {
-    name: "Spegetti and Meatballs",
-    description:
-      "A delicious helping of spagetti nice and good very delicious. This spagetti will make you very pleased indeed.",
-    src: "meetballs.jpg",
-    stars: 4,
-    id: 8
-  }
-};
 
 const theme = {
   ...preset
