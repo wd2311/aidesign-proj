@@ -12,8 +12,22 @@ import {
 import ReactStars from "react-stars";
 
 function RecipeCell(props) {
-  const { name, description, src, stars, id } = props.recipe;
+  const { id, title, desc, rating } = props.recipe;
   const { onSelection, inCart } = props;
+
+  const tmpImg = [
+    "alfredo",
+    "bolognese",
+    "chicken",
+    "indian",
+    "keto",
+    "meatballs",
+    "pasta",
+    "salad",
+    "thai",
+    "tikka"
+  ];
+  const src = tmpImg[Math.floor(Math.random() * tmpImg.length)] + ".jpg";
 
   return (
     <Card sx={{ borderRadius: 3 }} my={3} mr={3} width={200} px={0} pt={0}>
@@ -32,11 +46,11 @@ function RecipeCell(props) {
           mx={2}
         >
           <Heading fontSize={2} mb={1}>
-            {name}
+            {title}
           </Heading>
-          <ReactStars mb={1} value={stars} color1="primary" edit={false} />
+          <ReactStars mb={1} value={rating} color1="primary" edit={false} />
           <Text fontSize={1} mb={2} color="lightgrey">
-            {description}
+            {desc}
           </Text>
           <Button
             sx={
