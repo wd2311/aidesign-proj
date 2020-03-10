@@ -36,7 +36,9 @@ function Reccomendations(props) {
     <Flex width={2 / 3} mr={3} flexDirection="column">
       <Heading>Reccomended Recipes</Heading>
       {isLoading ? (
-        <ReactLoading type="spinningBubbles" color="primary" />
+        <Box my={3} mx="auto">
+          <ReactLoading type="spinningBubbles" color="primary" />
+        </Box>
       ) : (
         <RecipeList
           isCart={false}
