@@ -20,14 +20,25 @@ function EmptyCell() {
 }
 
 function Cart(props) {
-  const { recipes, onSelection } = props;
+  const { recipes, onSelection, onRecipeSelection } = props;
   return (
-    <Flex width={1 / 3} flexDirection="column">
+    <Flex
+      width={1 / 3}
+      px={3}
+      pt={3}
+      flexDirection="column"
+      backgroundColor="white"
+    >
       <Heading>Cart</Heading>
       {Object.keys(recipes).length === 0 ? (
         <EmptyCell />
       ) : (
-        <RecipeList onSelection={onSelection} isCart={true} recipes={recipes} />
+        <RecipeList
+          onSelection={onSelection}
+          isCart={true}
+          recipes={recipes}
+          onRecipeSelection={onRecipeSelection}
+        />
       )}
     </Flex>
   );
