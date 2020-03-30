@@ -3,9 +3,13 @@ import subprocess
 import time
 from tqdm import tqdm
 
+
+NUM_RECIPES = 100
+
 with open('data/full_format_recipes.json') as f:
-    data = json.load(f)
+    data = json.load(f)[:NUM_RECIPES]
 ingredient_names = []
+new_data = []
 for recipe in tqdm(data):
     with open("tmp/parser-input.txt", "w") as f:
         for ingredient in recipe["ingredients"]:
@@ -22,21 +26,23 @@ for recipe in tqdm(data):
         s = s.replace("\'","") # weird output formatting requires these corrections
         s = s.replace("\n","")
         parsed_ingredients = json.loads(s)
-    recipe["ingredient_names"] = []
+    new_recipe = recipe.copy()
+    new_recipe["ingredient_names"] = []
     for ingredient in parsed_ingredients:
         if "name" in ingredient.keys():
-            recipe["ingredient_names"].append(ingredient["name"])
+            new_recipe["ingredient_names"].append(ingredient["name"])
             ingredient_names.append(ingredient["name"])
-    recipe["parsed_ingredients"] = parsed_ingredients
+    new_recipe["parsed_ingredients"] = parsed_ingredients
+    new_data.append(new_recipe)
 
 ingredient_mapping = {}
 for i, ingredient in enumerate(list(set(ingredient_names))):
     ingredient_mapping[ingredient] = i
 
-for recipe in data:
+for recipe in new_data:
     recipe["ingredient_vector"] = [0] * len(ingredient_mapping.keys())
     for ingredient in recipe["ingredient_names"]:
         recipe["ingredient_vector"][ingredient_mapping[ingredient]] = 1
 
 with open('data/recipes_with_parsed_ingredients.json', "w") as f:
-    json.dump(data, f)
+    json.dump(new_data, f)
