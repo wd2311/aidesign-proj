@@ -15,7 +15,7 @@ function IngredientCell(props) {
   const { text } = props;
   return (
     <Flex flexDirection="column">
-      <Text p={2}>{text}</Text>
+      <Text p={1}>{text}</Text>
       <hr
         class="solid"
         width="100%"

@@ -14,7 +14,7 @@ import RecipeCell from "./RecipeCell.js";
 function RecipeList(props) {
   const { recipes, onSelection, onRecipeSelection, isCart } = props;
   return (
-    <Flex flexWrap="wrap">
+    <Flex flexWrap="wrap" minHeight={0} style={{ overflow: "auto" }}>
       {Object.entries(recipes).map(([id, recipe]) => {
         return (
           <RecipeCell

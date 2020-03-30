@@ -14,7 +14,7 @@ import IngredientCell from "./IngredientCell.js";
 
 function RecipeCell(props) {
   const { id, title, desc, rating, ingredients } = props.recipe;
-  const { onSelection, inCart } = props;
+  const { onSelection, inCart, onCancel } = props;
 
   const tmpImg = [
     "alfredo",
@@ -36,6 +36,7 @@ function RecipeCell(props) {
       height="100%"
       justifyContent="center"
       alignItems="center"
+      onClick={onCancel}
       sx={{
         backgroundColor: "rgba(0, 0, 0, .4)",
         position: "fixed",
@@ -43,17 +44,24 @@ function RecipeCell(props) {
       }}
     >
       <Card
-        sx={{ borderRadius: 3, position: "fixed", zIndex: 1 }}
+        sx={{ borderRadius: 3 }}
         my={3}
         mr={3}
-        width="60%"
+        width="600px"
+        maxHeight="80%"
+        overflow="auto"
         px={0}
-        pt={0}
+        py={0}
       >
-        <Flex width="100%" alignItems="stretch" flexDirection="column">
+        <Flex
+          width="100%"
+          alignItems="stretch"
+          flexDirection="column"
+          backgroundColor="blue"
+        >
           <Image
             src={src}
-            height="100px"
+            height="200px"
             width="100%"
             mb={2}
             sx={{ borderRadius: "3px 3px 0 0", objectFit: "cover" }}
@@ -64,10 +72,34 @@ function RecipeCell(props) {
             bg="white"
             mx={2}
           >
-            <Heading mb={1}>{title}</Heading>
-            <ReactStars mb={1} value={rating} color1="primary" edit={false} />
+            <Flex alignItems="center" justifyContent="space-between" mb={1}>
+              <Flex alignItems="center">
+                <Heading mb={1} mr={1}>
+                  {title}
+                </Heading>
+                <ReactStars
+                  mb={1}
+                  value={rating}
+                  color1="primary"
+                  edit={false}
+                />
+              </Flex>
+              <Button
+                sx={
+                  inCart
+                    ? { backgroundColor: "red" }
+                    : { ":active": { backgroundColor: "secondary" } }
+                }
+                my={1}
+                onClick={() => {
+                  onSelection(props.recipe);
+                }}
+              >
+                {inCart ? "Remove From Cart" : "Add to Cart"}
+              </Button>
+            </Flex>
             <Text fontSize={1} mb={2} color="lightgrey">
-              {desc}
+              {desc || "No description."}
             </Text>
             <hr
               class="solid"
@@ -77,22 +109,21 @@ function RecipeCell(props) {
             <Heading fontSize={2} mb={1}>
               Ingredients
             </Heading>
-            {ingredients.map(ingredient => (
-              <IngredientCell text={ingredient} />
-            ))}
-            <Button
-              sx={
-                inCart
-                  ? { backgroundColor: "red" }
-                  : { ":active": { backgroundColor: "secondary" } }
-              }
-              onClick={() => {
-                console.log(id);
-                onSelection(id);
-              }}
+            <hr
+              class="solid"
+              width="100%"
+              style={{ border: "0.5px solid rgb(230, 230, 230)" }}
+            />
+            <Flex
+              overflow="auto"
+              backgroundColor="yellow"
+              flexDirection="column"
+              flexGrow={1}
             >
-              {inCart ? "Remove From Cart" : "Add to Cart"}
-            </Button>
+              {ingredients.map(ingredient => (
+                <IngredientCell text={ingredient} />
+              ))}
+            </Flex>
           </Flex>
         </Flex>
       </Card>

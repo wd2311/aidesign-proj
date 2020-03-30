@@ -33,7 +33,7 @@ function Reccomendations(props) {
       });
   }, [cart]);
   return (
-    <Flex width={2 / 3} mr={3} flexDirection="column">
+    <Flex width={2 / 3} px={3} pt={3} flexDirection="column">
       <Heading>Reccomended Recipes</Heading>
       {isLoading ? (
         <Box my={3} mx="auto">
@@ -44,9 +44,7 @@ function Reccomendations(props) {
           isCart={false}
           recipes={recipes}
           onRecipeSelection={onRecipeSelection}
-          onSelection={id => {
-            onSelection(recipes[id]);
-          }}
+          onSelection={onSelection}
         />
       )}
     </Flex>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Cart from "./components/Cart.js";
 import RecipeList from "./components/RecipeList.js";
 import Reccomendations from "./components/Reccomendations.js";
@@ -18,6 +18,7 @@ import {
 } from "rebass/styled-components";
 
 import preset from "@rebass/preset";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 const theme = {
   ...preset
@@ -26,23 +27,44 @@ const theme = {
 function App() {
   const [cart, setCart] = useState({});
   const [focusRecipe, setFocusRecipe] = useState(null);
+  const body = useRef(null);
+
+  useEffect(() => {
+    if (focusRecipe) {
+      disableBodyScroll(body);
+    } else {
+      enableBodyScroll(body);
+    }
+  }, [focusRecipe]);
+
+  const addToCart = recipe => {
+    let newCart = Object.assign({}, cart);
+    newCart[recipe.id] = recipe;
+    console.log(newCart);
+    setCart(newCart);
+  };
+
   return (
     <ThemeProvider theme={theme}>
-      {focusRecipe && <RecipeDetail recipe={focusRecipe} />}
+      {focusRecipe && (
+        <RecipeDetail
+          recipe={focusRecipe}
+          onCancel={() => setFocusRecipe(null)}
+          onSelection={recipe => {
+            addToCart(recipe);
+            setFocusRecipe(null);
+          }}
+        />
+      )}
       <Navbar />
-      <Flex mt={4} mx={4}>
+      <Flex mx={0} backgroundColor="WhiteSmoke" ref={body} alignItems="stretch">
         <Reccomendations
           cart={
             Object.keys(cart).length
               ? Object.keys(cart).join("-")
               : [...Array(10).keys()].join("-")
           }
-          onSelection={recipe => {
-            let newCart = Object.assign({}, cart);
-            newCart[recipe.id] = recipe;
-            console.log(newCart);
-            setCart(newCart);
-          }}
+          onSelection={addToCart}
           onRecipeSelection={recipe => {
             console.log("Recipe selected");
             setFocusRecipe(recipe);
@@ -50,10 +72,14 @@ function App() {
         />
         <Cart
           recipes={cart}
-          onSelection={id => {
-            console.log("Delete", id);
+          onRecipeSelection={recipe => {
+            console.log("Recipe selected");
+            setFocusRecipe(recipe);
+          }}
+          onSelection={recipe => {
+            console.log("Delete", recipe.id);
             let newCart = Object.assign({}, cart);
-            delete newCart[id];
+            delete newCart[recipe.id];
             setCart(newCart);
           }}
         />
