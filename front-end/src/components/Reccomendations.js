@@ -28,6 +28,7 @@ function Reccomendations(props) {
           },
           {}
         );
+        console.log(fetchedRecipes);
         setRecipes(fetchedRecipes);
         setIsLoading(false);
       });

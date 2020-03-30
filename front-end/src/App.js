@@ -44,14 +44,21 @@ function App() {
     setCart(newCart);
   };
 
+  const deleteFromCart = recipe => {
+    let newCart = Object.assign({}, cart);
+    delete newCart[recipe.id];
+    setCart(newCart);
+  };
+
   return (
     <ThemeProvider theme={theme}>
       {focusRecipe && (
         <RecipeDetail
           recipe={focusRecipe}
           onCancel={() => setFocusRecipe(null)}
+          inCart={focusRecipe.id in cart}
           onSelection={recipe => {
-            addToCart(recipe);
+            focusRecipe.id in cart ? deleteFromCart(recipe) : addToCart(recipe);
             setFocusRecipe(null);
           }}
         />
@@ -76,12 +83,7 @@ function App() {
             console.log("Recipe selected");
             setFocusRecipe(recipe);
           }}
-          onSelection={recipe => {
-            console.log("Delete", recipe.id);
-            let newCart = Object.assign({}, cart);
-            delete newCart[recipe.id];
-            setCart(newCart);
-          }}
+          onSelection={deleteFromCart}
         />
       </Flex>
     </ThemeProvider>
