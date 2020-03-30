@@ -12,7 +12,7 @@ import {
 import RecipeCell from "./RecipeCell.js";
 
 function RecipeList(props) {
-  const { recipes, onSelection, isCart } = props;
+  const { recipes, onSelection, onRecipeSelection, isCart } = props;
   return (
     <Flex flexWrap="wrap">
       {Object.entries(recipes).map(([id, recipe]) => {
@@ -21,6 +21,7 @@ function RecipeList(props) {
             key={id}
             recipe={recipe}
             onSelection={onSelection}
+            onRecipeSelection={onRecipeSelection}
             inCart={isCart}
           />
         );

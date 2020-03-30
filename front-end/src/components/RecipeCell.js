@@ -13,7 +13,7 @@ import ReactStars from "react-stars";
 
 function RecipeCell(props) {
   const { id, title, desc, rating } = props.recipe;
-  const { onSelection, inCart } = props;
+  const { onSelection, inCart, onRecipeSelection } = props;
 
   const tmpImg = [
     "alfredo",
@@ -30,7 +30,17 @@ function RecipeCell(props) {
   const src = tmpImg[Math.floor(Math.random() * tmpImg.length)] + ".jpg";
 
   return (
-    <Card sx={{ borderRadius: 3 }} my={3} mr={3} width={200} px={0} pt={0}>
+    <Card
+      sx={{ borderRadius: 3 }}
+      my={3}
+      mr={3}
+      width={200}
+      px={0}
+      pt={0}
+      onClick={() => {
+        onRecipeSelection(props.recipe);
+      }}
+    >
       <Flex width="100%" alignItems="stretch" flexDirection="column">
         <Image
           src={src}
@@ -58,9 +68,10 @@ function RecipeCell(props) {
                 ? { backgroundColor: "red" }
                 : { ":active": { backgroundColor: "secondary" } }
             }
-            onClick={() => {
+            onClick={e => {
               console.log(id);
               onSelection(id);
+              e.stopPropagation();
             }}
           >
             {inCart ? "Remove From Cart" : "Add to Cart"}

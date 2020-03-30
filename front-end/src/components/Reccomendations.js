@@ -13,7 +13,7 @@ import ReactLoading from "react-loading";
 import RecipeList from "./RecipeList.js";
 
 function Reccomendations(props) {
-  const { cart, onSelection } = props;
+  const { cart, onSelection, onRecipeSelection } = props;
   const [recipes, setRecipes] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -43,6 +43,7 @@ function Reccomendations(props) {
         <RecipeList
           isCart={false}
           recipes={recipes}
+          onRecipeSelection={onRecipeSelection}
           onSelection={id => {
             onSelection(recipes[id]);
           }}
