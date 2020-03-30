@@ -12,7 +12,7 @@ import {
 import ReactStars from "react-stars";
 import IngredientCell from "./IngredientCell.js";
 
-function RecipeCell(props) {
+function RecipeDetail(props) {
   const { id, title, desc, rating, ingredients } = props.recipe;
   const { onSelection, inCart, onCancel } = props;
 
@@ -33,7 +33,7 @@ function RecipeCell(props) {
   return (
     <Flex
       width="100%"
-      height="100%"
+      height="100vh"
       justifyContent="center"
       alignItems="center"
       onClick={onCancel}
@@ -52,12 +52,14 @@ function RecipeCell(props) {
         overflow="auto"
         px={0}
         py={0}
+        minHeight={0}
       >
         <Flex
           width="100%"
           alignItems="stretch"
           flexDirection="column"
-          backgroundColor="blue"
+          overflow="hidden"
+          minHeight="0px"
         >
           <Image
             src={src}
@@ -71,10 +73,17 @@ function RecipeCell(props) {
             flexDirection="column"
             bg="white"
             mx={2}
+            overflow="hidden"
+            minHeight={0}
           >
-            <Flex alignItems="center" justifyContent="space-between" mb={1}>
+            <Flex
+              flexGrow={0}
+              alignItems="center"
+              justifyContent="space-between"
+              mb={1}
+            >
               <Flex alignItems="center">
-                <Heading mb={1} mr={1}>
+                <Heading flex="1 1 auto" mb={1} mr={1}>
                   {title}
                 </Heading>
                 <ReactStars
@@ -82,6 +91,7 @@ function RecipeCell(props) {
                   value={rating}
                   color1="primary"
                   edit={false}
+                  flex="0 0 80px"
                 />
               </Flex>
               <Button
@@ -91,6 +101,7 @@ function RecipeCell(props) {
                     : { ":active": { backgroundColor: "secondary" } }
                 }
                 my={1}
+                flex="0 0 120px"
                 onClick={() => {
                   onSelection(props.recipe);
                 }}
@@ -115,10 +126,10 @@ function RecipeCell(props) {
               style={{ border: "0.5px solid rgb(230, 230, 230)" }}
             />
             <Flex
-              overflow="auto"
-              backgroundColor="yellow"
+              overflow="hidden"
               flexDirection="column"
               flexGrow={1}
+              minHeight={0}
             >
               {ingredients.map(ingredient => (
                 <IngredientCell text={ingredient} />
@@ -131,4 +142,4 @@ function RecipeCell(props) {
   );
 }
 
-export default RecipeCell;
+export default RecipeDetail;
