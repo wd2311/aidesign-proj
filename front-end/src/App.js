@@ -3,6 +3,7 @@ import Cart from "./components/Cart.js";
 import RecipeList from "./components/RecipeList.js";
 import Reccomendations from "./components/Reccomendations.js";
 import Navbar from "./components/Navbar.js";
+import RecipeDetail from "./components/RecipeDetail.js";
 import { ThemeProvider } from "styled-components";
 import staticRecRecipes from "./placeholderRecipes.js";
 import {
@@ -24,8 +25,10 @@ const theme = {
 
 function App() {
   const [cart, setCart] = useState({});
+  const [focusRecipe, setFocusRecipe] = useState(null);
   return (
     <ThemeProvider theme={theme}>
+      {focusRecipe && <RecipeDetail recipe={focusRecipe} />}
       <Navbar />
       <Flex mt={4} mx={4}>
         <Reccomendations
@@ -39,6 +42,10 @@ function App() {
             newCart[recipe.id] = recipe;
             console.log(newCart);
             setCart(newCart);
+          }}
+          onRecipeSelection={recipe => {
+            console.log("Recipe selected");
+            setFocusRecipe(recipe);
           }}
         />
         <Cart
