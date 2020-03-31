@@ -13,7 +13,7 @@ import ReactLoading from "react-loading";
 import RecipeList from "./RecipeList.js";
 
 function Reccomendations(props) {
-  const { cart, onSelection } = props;
+  const { cart, onSelection, onRecipeSelection } = props;
   const [recipes, setRecipes] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -28,12 +28,13 @@ function Reccomendations(props) {
           },
           {}
         );
+        console.log(fetchedRecipes);
         setRecipes(fetchedRecipes);
         setIsLoading(false);
       });
   }, [cart]);
   return (
-    <Flex width={2 / 3} mr={3} flexDirection="column">
+    <Flex width={2 / 3} px={3} pt={3} flexDirection="column">
       <Heading>Reccomended Recipes</Heading>
       {isLoading ? (
         <Box my={3} mx="auto">
@@ -43,9 +44,8 @@ function Reccomendations(props) {
         <RecipeList
           isCart={false}
           recipes={recipes}
-          onSelection={id => {
-            onSelection(recipes[id]);
-          }}
+          onRecipeSelection={onRecipeSelection}
+          onSelection={onSelection}
         />
       )}
     </Flex>
