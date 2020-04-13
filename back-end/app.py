@@ -8,8 +8,6 @@ import json
 import numpy as np
 import random
 
-allergy
-
 def query(params):
 
     cart = [data[int(idx)] for idx in params['cart']]
