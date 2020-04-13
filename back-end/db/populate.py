@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
+import csv
 from declarative import Base, Recipe, Ingredient, Allergy, Allergen, RecipeIngredient
 
 engine = create_engine('sqlite:///recipe.db')
@@ -9,6 +9,57 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 
 session = DBSession()
+
+#### add from recipes
+def load_recipes(recipes_filename):
+
+
+	for row in open(recipes_filename):
+		row = row.lstrip()
+		row = row.rstrip()
+		row = row.split("|")
+		print 'ROW = {}'.format(row)
+		recipe_id = row[0]
+		recipe_name = row[1]
+		recipe_image = row[2]
+		recipe_url = row[3]
+		recipe_blog_url = row[4]
+		recipe_ingredients_list = row[5]
+		recipe_yield = row[6]
+		recipe_calories = row[7]
+		carbohydrates = row[8]
+		protein = row[9]
+		fiber = row[10]
+		fat = row[11]
+		potassium = row[12]
+		phosphorus = row[13]
+		sodium = row[14]
+		iron = row[15]
+		saturated_fat = row[16]
+
+		recipe = Recipe(recipe_id=int(recipe_id),
+			recipe_name=recipe_name,
+			recipe_image=recipe_image,
+			recipe_url=recipe_url,
+			blog_url=recipe_blog_url,
+			ingredients_list=recipe_ingredients_list,
+			recipe_yield=recipe_yield,
+			calories=recipe_calories,
+			carbohydrates=recipe_carbohydrates,
+			protein=recipe_protein,
+			fiber=recipe_fiber,
+			fat=recipe_fat,
+			potassium=recipe_potassium,
+			phosphorus=recipe_phosphorus,
+			sodium=recipe_sodium,
+			iron=recipe_iron,
+			saturated_fat=recipe_saturated_fat)
+
+		session.add(recipe)
+
+	session.commit()
+
+
 
 # Add a grilled cheese
 
