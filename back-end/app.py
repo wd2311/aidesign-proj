@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import jsonify
+from flask import request
 from flask_cors import CORS
 
 import json
@@ -7,7 +8,13 @@ import json
 import numpy as np
 import random
 
-def query(cart):
+allergy
+
+def query(params):
+
+    cart = [data[int(idx)] for idx in params['cart']]
+    allergys = [a for a in params['allergys']]
+    pantry = [p for p in params['pantry']]
 
     # Candidate Generator
     def candidate_generator(num_generated_candidates):
@@ -15,6 +22,25 @@ def query(cart):
         cart_ingredients = np.zeros(len(data[0]['ingredient_vector']))
         for recipe in cart:
             cart_ingredients = np.maximum(cart_ingredients, recipe['ingredient_vector'])
+
+        # Returns true if the recipe does not conflict with the user's allergy restrictions
+        def allergy_checker(recipe):
+            allergy_categories = {
+                'dairy': ['milk', 'cheese'],
+                'nuts': ['almond', 'cashew']
+            }
+
+            # If finds allergy, return false
+            for allergy in allergys: # for evert allergy,
+                if allergy in allergy_categories: # if it's in one of our saved allergy categories
+                    allergy_words = allergy_categories[allergy] # get all the words for that allergy category
+                    for ingredient in recipe['ingredients']: # for every ingredient
+                        for allergy_word in allergy_words: # check if any allergy words are in the ingredient
+                            if allergy_word in ingredient: # if they are, allergy check fails.
+                                return False
+            
+            # If no allergy issue, return true (passed allergy check)
+            return True   
 
         # Containment of vector a in b
         def containment(a, b):
@@ -35,9 +61,10 @@ def query(cart):
         # Find similar recipes by ingredients, querying our similarity method
         candidate_ranks = []
         for other_recipe in data:
-            other_ingredients = other_recipe['ingredient_vector']
-            rank = containment(other_ingredients, cart_ingredients)
-            candidate_ranks.append((rank, other_recipe))
+            if allergy_checker(other_recipe): # Only consider a recipe for candidacy if it doesn't violate the user's allergy restrictions
+                other_ingredients = other_recipe['ingredient_vector']
+                rank = containment(other_ingredients, cart_ingredients)
+                candidate_ranks.append((rank, other_recipe))
 
         # Candidates have been generated, by sorting by most similar
         generated_candidates = [x[1] for x in sorted(candidate_ranks, reverse=True, key=lambda x: x[0])][:num_generated_candidates]
@@ -133,11 +160,18 @@ with open('data/full_format_recipes_plus_normalized_ingredients.json') as f:
 for i, recipe in enumerate(data):
     recipe['id'] = i
 
-@app.route('/get_recs/<cart>')
-def get_recs(cart):
-    cart_ids = [int(idx) for idx in cart.split('-')]
-    cart_recipes = [data[idx] for idx in cart_ids]
+@app.route('/get_recs/')
+def get_recs():
+    
+    fields = ['cart', 'allergys', 'pantry']
+    list_separator = ';;;'
+    
+    recommendation_params = {}
+    args = request.args
+    for field in fields:
+        if field in args:
+            recommendation_params[field] = args[field].split(list_separator)
 
-    recs = query(cart_recipes)
+    recs = query(recommendation_params)
 
     return jsonify({'recommendations': recs})
