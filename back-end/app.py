@@ -24,8 +24,10 @@ def query(params):
         # Returns true if the recipe does not conflict with the user's allergy restrictions
         def allergy_checker(recipe):
             allergy_categories = {
-                'dairy': ['milk', 'cheese'],
-                'nuts': ['almond', 'cashew']
+                'dairy': ['dairy', 'milk', 'cheese', 'butter', 'yogurt', 'cream'],
+                'nuts': ['nut', 'almond', 'cashew', 'pecan'],
+                'shellfish': ['shellfish', 'clam', 'oyster', 'mussel', 'scallop'],
+                'gluten': ['gluten', 'wheat', 'rye', 'barley', 'bread', 'pasta', 'beer', 'bread']
             }
 
             # If finds allergy, return false
