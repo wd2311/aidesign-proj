@@ -1,0 +1,47 @@
+.page-enter {
+  opacity: 0;
+  transform: translate(100%);
+}
+
+.page-enter.page-enter-active {
+  opacity: 1;
+  transform: translate(0%);
+  transition: all 400ms ease-in-out;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translate(0%);
+}
+
+.page-exit.page-exit-active {
+  opacity: 0;
+  transform: translate(-100%);
+  transition: all 400ms ease-in-out;
+}
+
+.pageb-enter {
+  opacity: 0;
+  transform: translate(-100%);
+}
+
+.pageb-enter.pageb-enter-active {
+  opacity: 1;
+  transform: translate(0%);
+  transition: all 400ms ease-in-out;
+}
+
+.pageb-exit {
+  opacity: 1;
+  transform: translate(0%);
+}
+
+.pageb-exit.pageb-exit-active {
+  opacity: 0;
+  transform: translate(100%);
+  transition: all 400ms ease-in-out;
+}
+
+.Penis {
+  opacity: 0.5;
+}

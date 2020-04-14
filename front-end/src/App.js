@@ -5,7 +5,6 @@ import Reccomendations from "./components/Reccomendations.js";
 import Navbar from "./components/Navbar.js";
 import RecipeDetail from "./components/RecipeDetail.js";
 import { ThemeProvider } from "styled-components";
-import staticRecRecipes from "./placeholderRecipes.js";
 import {
   Box,
   Flex,
