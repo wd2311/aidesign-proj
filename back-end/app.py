@@ -4,6 +4,7 @@ from flask import request
 from flask_cors import CORS
 
 import json
+import csv
 
 import numpy as np
 import random
@@ -160,6 +161,13 @@ with open('data/full_format_recipes_plus_normalized_ingredients.json') as f:
 for i, recipe in enumerate(data):
     recipe['id'] = i
 
+all_ingredient_names = []
+with open('data/combined_ingredients.csv') as f:
+    reader = csv.reader(f)
+    for i, row in enumerate(reader):
+        if i > 0:
+            all_ingredient_names.append(row[1])
+
 @app.route('/get_recs/')
 def get_recs():
     
@@ -175,3 +183,7 @@ def get_recs():
     recs = query(recommendation_params)
 
     return jsonify({'recommendations': recs})
+
+@app.route('/get_all_ingredient_names/')
+def get_all_ingredient_names():
+    return jsonify({'recommendations': all_ingredient_names})
