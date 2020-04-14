@@ -1,3 +1,4 @@
+import json
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -10,44 +11,29 @@ DBSession = sessionmaker(bind=engine)
 
 session = DBSession()
 
-# Add a grilled cheese
+with open('../data/full_format_recipes_plus_normalized_ingredients.json', 'r') as json_file:
+    recipes = json.load(json_file)
 
-grilled_cheese = Recipe(name='Grilled Cheese', directions='You know the drill.')
-session.add(grilled_cheese)
+for recipe in recipes:
+    recipe_entry = Recipe(name=recipe['title'], directions='-'.join(recipe['directions']))
+    session.add(recipe_entry)
+    session.commit()
 
-cheese = Ingredient(name='Cheese')
-bread = Ingredient(name='Bread')
-session.add(cheese)
-session.add(bread)
+    for ingredient in recipe['parsed_ingredients']:
+        if 'name' not in ingredient:
+            continue
 
-grilled_cheese_cheese = RecipeIngredient(recipe=grilled_cheese, ingredient=cheese, quantity=1)
-grilled_cheese_bread = RecipeIngredient(recipe=grilled_cheese, ingredient=bread, quantity=2)
-session.add(grilled_cheese_cheese)
-session.add(grilled_cheese_bread)
+        ingredient_exists = session.query(Ingredient.id).filter_by(name=ingredient['name']).scalar() is not None
+        if ingredient_exists:
+            ingredient_entry = session.query(Ingredient).filter_by(name=ingredient['name']).first()
+        else:
+            ingredient_entry = Ingredient(name=ingredient['name'])
+            session.add(ingredient_entry)
 
-session.commit()
-
-# Add a zucchini sandwich
-
-zucchini_sandwich = Recipe(name='Veggie Sandwich', directions='Put it together')
-session.add(zucchini_sandwich)
-
-zucchini = Ingredient(name='Zucchini')
-session.add(zucchini)
-
-zucchini_sandwich_zucchini = RecipeIngredient(recipe=zucchini_sandwich, ingredient=zucchini, quantity=1)
-zucchini_sandwich_bread = RecipeIngredient(recipe=zucchini_sandwich, ingredient=bread, quantity=2)
-session.add(zucchini_sandwich_zucchini)
-session.add(zucchini_sandwich_bread)
-
-session.commit()
-
-# Add a dairy allergy
-
-dairy_free = Allergy(name='Dairy')
-session.add(dairy_free)
-
-allergen = Allergen(allergy=dairy_free, ingredient=cheese)
-session.add(allergen)
-
-session.commit()
+        recipe_ingredient_entry = RecipeIngredient(recipe=recipe_entry, ingredient=ingredient_entry, recipe_id=recipe_entry.id, ingredient_id=ingredient_entry.id)
+        if 'qty' in ingredient:
+            recipe_ingredient_entry.quantity = ingredient['qty']
+        if 'unit' in ingredient:
+            recipe_ingredient_entry.unit = ingredient['unit']
+        session.add(recipe_ingredient_entry)
+    session.commit()
