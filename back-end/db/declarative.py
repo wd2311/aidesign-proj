@@ -8,36 +8,38 @@ Base = declarative_base()
 class Recipe(Base):
     __tablename__ = 'recipe'
     id = Column(Integer, primary_key=True)
-    name = Column(TEXT, nullable=False)
+    ingredients = relationship('RecipeIngredient', back_populates='recipe')
+    name = Column(TEXT)
     directions = Column(TEXT)
 
 class Ingredient(Base):
     __tablename__ = 'ingredient'
     id = Column(Integer, primary_key=True)
+    recipes = relationship('RecipeIngredient', back_populates='ingredient')
+    allergies = relationship('Allergen', back_populates='ingredient')
     name = Column(TEXT)
 
 class Allergy(Base):
     __tablename__ = 'allergy'
     id = Column(Integer, primary_key=True)
+    ingredients = relationship('Allergen', back_populates='allergy')
     name = Column(TEXT)
 
 class Allergen(Base):
     __tablename__ = 'allergen'
-    id = Column(Integer, primary_key=True)
-    ingredient_id = Column(Integer, ForeignKey('ingredient.id'), nullable=False)
-    allergy_id = Column(Integer, ForeignKey('allergy.id'), nullable=False)
-    ingredient = relationship(Ingredient)
-    allergy = relationship(Allergy)
+    allergy_id = Column(Integer, ForeignKey('allergy.id'), primary_key=True)
+    ingredient_id = Column(Integer, ForeignKey('ingredient.id'), primary_key=True)
+    allergy = relationship('Allergy', back_populates='ingredients')
+    ingredient = relationship('Ingredient', back_populates='allergies')
 
 class RecipeIngredient(Base):
     __tablename__ = 'recipe_ingredient'
-    id = Column(Integer, primary_key=True)
-    recipe_id = Column(Integer, ForeignKey('recipe.id'), nullable=False)
-    ingredient_id = Column(Integer, ForeignKey('ingredient.id'), nullable=False)
-    quantity = Column(Integer, nullable=True)
+    recipe_id = Column(Integer, ForeignKey('recipe.id'), primary_key=True)
+    ingredient_id = Column(Integer, ForeignKey('ingredient.id'), primary_key=True)
+    recipe = relationship('Recipe', back_populates='ingredients')
+    ingredient = relationship('Ingredient', back_populates='recipes')
+    quantity = Column(TEXT, nullable=True)
     unit = Column(TEXT, nullable=True)
-    recipe = relationship(Recipe)
-    ingredient = relationship(Ingredient)
 
 engine = create_engine('sqlite:///recipe.db')
 Base.metadata.create_all(engine)
