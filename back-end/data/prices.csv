@@ -1,66 +1,66 @@
-Name,Average retail price,Preparation yield factor,Size of a cup equivalent,Average price per cup equivalent
+Name,Average retail price,Unit,Preparation yield factor,Size of a cup equivalent,Unit,Average price per cup equivalent
 Apple,1.57,per pound,0.9,0.243,pounds,0.42
-Applesauce,1.08,per pound,1,0.540,pounds,0.58
+Applesauce,1.08,per pound,1,0.54,pounds,0.58
 Apple Juice,0.73,per pint,1,8,fl oz,0.36
 Apple Juice(frozen),0.54,per pint,1,8,fl oz,0.27
 Apricots,3.04,per pound,0.93,0.364,pounds,1.19
-Apricots(canned),1.65,per pound,1,0.540,pounds,0.89
+Apricots(canned),1.65,per pound,1,0.54,pounds,0.89
 Apricot(dried),7.73,per pound,1,0.143,pounds,1.11
 Banana,0.57,per pound,0.64,0.331,pounds,0.29
 Mixed Berries(frozen),3.41,per pound,1,0.331,pounds,1.13
-Blackberries,5.77,per pound,0.96,0.320,pounds,1.92
+Blackberries,5.77,per pound,0.96,0.32,pounds,1.92
 Blackberries(frozen),3.39,per pound,1,0.331,pounds,1.12
-Blueberries,4.73,per pound,0.95,0.320,pounds,1.59
+Blueberries,4.73,per pound,0.95,0.32,pounds,1.59
 Blueberries(frozen),3.64,per pound,1,0.331,pounds,1.12
 Cantaloupe,0.54,per pound,0.51,0.375,pounds,0.39
 Cranberries(dried),4.79,per pound,1,0.123,pounds,0.59
-Cherries,3.59.per pound,0.92,0.342,pounds,1.33
+Cherries,3.59,per pound,0.92,0.342,pounds,1.33
 Cherries(canned),3.52,per pound,0.65,0.441,pounds,2.39
 Dates,4.79,per pound,1,0.165,pounds,0.79
 Figs(dried),5.75,per pound,0.96,0.165,pounds,0.99
 Pineapple,0.63,per pound,0.51,0.364,pounds,0.45
-Pineapple(canned),1.14,per pound,1,0.540,pounds,0.62
-Pineapples(dried),5.50,per pound,1,0.154,pounds,0.85
+Pineapple(canned),1.14,per pound,1,0.54,pounds,0.62
+Pineapples(dried),5.5,per pound,1,0.154,pounds,0.85
 Pineapple juice,0.91,per pint,1,8,fl oz,0.45
-Pineapple juice(frozen),0.59,per pint,1,8,fl oz,0.30
+Pineapple juice(frozen),0.59,per pint,1,8,fl oz,0.3
 Pomegranate,2.17,per pound,0.56,0.342,pounds,1.33
 Pomegranate Juice,2.94,per pint,1,8,fl oz,1.47
 Watermelon,0.33,per pound,0.52,0.331,pounds,0.21
 Peaches,1.59,per pound,0.96,0.342,pounds,0.57
-Peaches(canned),1.96,per pound,1,0.540,pounds,1.06
+Peaches(canned),1.96,per pound,1,0.54,pounds,1.06
 Peaches(frozen),2.89,per pound,1,0.331,pounds,0.96
 Mangoes,1.38,per pound,0.71,0.364,pounds,0.71
-Mangoes(dried),8.50,per pound,1,0.125,pounds,1.07
-Papaya,1.30,per pound,0.62,0.309,pounds,0.65
-Papaya(dried),4.57,per pound,1,0.154,pounds,0.70
+Mangoes(dried),8.5,per pound,1,0.125,pounds,1.07
+Papaya,1.3,per pound,0.62,0.309,pounds,0.65
+Papaya(dried),4.57,per pound,1,0.154,pounds,0.7
 Kiwi,2.04,per pound,0.76,0.386,pounds,1.04
-Nectaries,1.76,per pound,0.91,0.320,pounds,0.62
-Honeydew melon,0.80,per pound,0.46,0.375,pounds,0.65
+Nectaries,1.76,per pound,0.91,0.32,pounds,0.62
+Honeydew melon,0.8,per pound,0.46,0.375,pounds,0.65
 Grapes,2.09,per pound,0.96,0.331,pounds,0.72
 Grape Juice,0.91,per pint,1,8,fl oz,0.46
 Grape Juice(frozen),0.72,per pint,1,8,fl oz,0.36
-Grapefruit,0.90,per pound,0.49,0.463,pounds,0.85
+Grapefruit,0.9,per pound,0.49,0.463,pounds,0.85
 Grapefruit Juice,0.82,per pint,1,8,fl oz,0.41
 Grapefruit Juice(frozen),0.67,per pint,1,8,fl oz,0.34
-Strawberries,2.36,per pound,0.94,0.320,pounds,0.80
+Strawberries,2.36,per pound,0.94,0.32,pounds,0.8
 Strawberries(frozen),2.38,per pound,1,0.331,pounds,0.79
-Raspberries,6.986,per pound,0.96,0.320,pounds,2.32
+Raspberries,6.986,per pound,0.96,0.32,pounds,2.32
 Raspberries(frozen),4.45,per pound,1,0.331,pounds,1.47
 Tangerines,1.38,per pound,0.74,0.408,pounds,0.76
 Oranges,1.04,per pound,0.73,0.408,pounds,0.58
-Orange Juice,0.80,per pint,1,8,fl oz,0.40
+Orange Juice,0.8,per pint,1,8,fl oz,0.4
 Orange Juice(frozen),0.69,per pint,1,8,fl oz,0.34
 Pears,1.46,per pound,0.9,0.364,pounds,0.59
-Pears(canned),1.85,per pound,1,0.540,pounds,1
+Pears(canned),1.85,per pound,1,0.54,pounds,1
 Plums,1.83,per pound,0.94,0.364,pounds,0.71
 Plums(dried),4.04,per pound,1,0.187,pounds,0.76
 Plum Juice,1.16,per pint,1,8,fl oz,0.58
-Fruit cocktail,1.49,per pound,1,0.540,pounds,0.80
+Fruit cocktail,1.49,per pound,1,0.54,pounds,0.8
 Acorn squash,1.17,per pound,0.459,0.452,pounds,1.16
 Artichoke,2.21,per pound,0.375,0.386,pounds,2.27
 Artichoke(canned),3.39,per pound,0.65,0.386,pounds,2.01
 Artichoke(frozen),6.22,per pound,0.941,0.386,pounds,2.55
-Avocados,2.24,per pound,0.741,0.320,pounds,0.96
+Avocados,2.24,per pound,0.741,0.32,pounds,0.96
 Asparagus,3.21,per pound,0.494,0.397,pounds,2.58
 Asparagus(canned),2.58,per pound,0.65,0.397,pounds,1.58
 Asparagus(frozen),5.86,per pound,1.034,0.397,pounds,2.25
@@ -73,51 +73,51 @@ Black beans dry,1.49,per pound,2.293,0.386,pounds,0.25
 Brussels sprouts,2.76,per pound,1.06,0.342,pounds,0.89
 Brussels sprouts(frozen),2.14,per pound,0.96,0.342,pounds,0.76
 Butternut squash,1.24,per pound,0.714,0.452,pounds,0.79
-Cucumbers(with peel),1.30,per pound,0.97,0.265,pounds,0.35
-Cucumbers(peeled),1.30,per pound,0.73,0.265,pounds,0.47
+Cucumbers(with peel),1.3,per pound,0.97,0.265,pounds,0.35
+Cucumbers(peeled),1.3,per pound,0.73,0.265,pounds,0.47
 Sweet corn,2.69,per pound,0.54,0.364,pounds,1.81
-Sweet corn(canned),0.90,per pound,0.65,0.364,pounds,0.51
+Sweet corn(canned),0.9,per pound,0.65,0.364,pounds,0.51
 Sweet corn(frozen),1.62,per pound,0.963,0.364,pounds,0.61
 Collard greens,2.63,per pound,1.16,0.287,pounds,0.65
-Collard greens(canned),0.90,per pound,0.65,0.364,pounds,0.51
+Collard greens(canned),0.9,per pound,0.65,0.364,pounds,0.51
 Collard greens(frozen),1.48,per pound,0.882,0.364,pounds,0.61
-Celery(trimmed bunches),1.11,per pound,0.73,0.265,pounds,0.40
-Celery sticks,2.20,per pound,1,0.265,pounds,0.58
+Celery(trimmed bunches),1.11,per pound,0.73,0.265,pounds,0.4
+Celery sticks,2.2,per pound,1,0.265,pounds,0.58
 Green cabbage,0.58,per pound,0.779,0.331,pounds,0.25
-Red cabbage,1.06,per pound,0.779,0.331,0.45
-Sauerkraut,1.26,per pound,0.65,0.309,pounds,0.60
+Red cabbage,1.06,per pound,0.779,0.331,0.45,
+Sauerkraut,1.26,per pound,0.65,0.309,pounds,0.6
 Cauliflower florets,3.27,per pound,0.97,0.276,pounds,0.93
 Cauliflower heads,1.23,per pound,0.893,0.276,pounds,0.38
 Cauliflower(frozen),1.72,per pound,0.93,0.276,pounds,0.51
-Carrots(canned),1.06,per pound,0.65,0.320,pounds,0.52
-Carrots(frozen),1.46,per pound,0.98,0.320,pounds,0.48
-Raw baby carrots,1.45,per pound,1,0.276,pounds,0.40
+Carrots(canned),1.06,per pound,0.65,0.32,pounds,0.52
+Carrots(frozen),1.46,per pound,0.98,0.32,pounds,0.48
+Raw baby carrots,1.45,per pound,1,0.276,pounds,0.4
 Raw whole carrots,0.74,per pound,0.89,0.276,pounds,0.23
-Carrots cooked,0.74,per pound,0.816,0.320,pounds,0.29
+Carrots cooked,0.74,per pound,0.816,0.32,pounds,0.29
 Blackeye peas(canned),0.91,per pound,0.65,0.375,pounds,0.52
 Blackeye peas dry,1.59,per pound,2.61,0.386,pounds,0.23
 Northern beans(canned),0.92,per pound,0.65,0.386,pounds,0.55
 Northern beans dry,1.53,per pound,2.399,0.386,pounds,0.25
-Kidney beans(canned),0.90,per pound,0.65,0.386,pounds,0.54
+Kidney beans(canned),0.9,per pound,0.65,0.386,pounds,0.54
 Kidney beans dry,1.67,per pound,2.399,0.386,pounds,0.27
 Kale,2.81,per pound,1.05,0.287,pound,0.77
-Kale(canned),1.07,per pound,0.65,0.364,pound,0.60
+Kale(canned),1.07,per pound,0.65,0.364,pound,0.6
 Kale(frozen),1.72,per pound,0.899,0.364,pound,0.69
 Green peppers,1.41,per pound,0.82,0.265,pounds,0.46
 Green peas(canned),1.01,per pound,0.65,0.353,pounds,0.55
 Green peas(frozen),1.65,per pound,0.892,0.353,pounds,0.65
-Green beans,2.14,per pound,0.847,0.276,pounds,0.70
+Green beans,2.14,per pound,0.847,0.276,pounds,0.7
 Green beans(canned),0.83,per pound,0.65,0.298,pounds,0.38
 Green beans(frozen),1.67,per pound,0.903,0.298,pounds,0.55
-Lentils,1.39,per pound,2.716,0.386,pounds,0.20
+Lentils,1.39,per pound,2.716,0.386,pounds,0.2
 Mustard greens,2.57,per pound,0.84,0.309,pounds,0.94
-Mustard greens(canned),0.98,per pound,0.65,0.331,pounds,0.50
+Mustard greens(canned),0.98,per pound,0.65,0.331,pounds,0.5
 Mustard greens(frozen),1.46,per pound,0.748,0.331,pounds,0.64
 Navy beans(canned),0.97,per pound,0.65,0.386,pounds,0.58
 Navy beans dry,1.51,per pound,2.399,0.386,pounds,0.24
 Mushrooms whole,3.41,per pound,0.97,0.154,pounds,0.54
 Mushrooms sliced,3.82,per pound,1,0.154,pounds,0.59
-Lima beans(canned),1.38,per pound,0.65,0.375,pounds,0.80
+Lima beans(canned),1.38,per pound,0.65,0.375,pounds,0.8
 Lima beans(frozen),1.84,per pound,1.097,0.375,pounds,0.63
 Lima beans,1.73,per pound,2.504,0.386,pounds,0.27
 Romaine lettuce heads,1.84,per pound,0.94,0.209,pounds,0.41
@@ -129,21 +129,41 @@ Olives(canned),4.19,per pound,1,0.298,pounds,1.25
 Onions,1.04,per pound,0.9,0.353,pounds,0.41
 Spinach,3.83,per pound,0.77,0.331,pounds,1.65
 Spinach(canned),1.15,per pound,0.65,0.375,pounds,0.66
-Spinach(frozen),1.90,per pound,0.776,0.375,pounds,0.92
+Spinach(frozen),1.9,per pound,0.776,0.375,pounds,0.92
 Red peppers,2.28,per pound,0.82,0.265,pounds,0.73
-Radish,1.31,per pound,0.9,0.276,pounds,0.40
-Pumpkin(canned),1.35,per pound,1,0.540,pounds,0.73
+Radish,1.31,per pound,0.9,0.276,pounds,0.4
+Pumpkin(canned),1.35,per pound,1,0.54,pounds,0.73
 Pinto beans(canned),0.87,per pound,0.65,0.38,pounds,0.51
-Pinto beans dry,1.20,per pound,2.399,0.386,pounds,0.19
+Pinto beans dry,1.2,per pound,2.399,0.386,pounds,0.19
 Potatoes,0.56,per pound,0.811,0.265,pounds,0.18
 Potatoes(canned),0.97,per pound,0.65,0.342,pounds,0.51
 Summer squash,1.64,per pound,0.77,0.397,pounds,0.85
-Turnip greens,2.47,per pound,0.75,0.320,pounds,1.05
+Turnip greens,2.47,per pound,0.75,0.32,pounds,1.05
 Turnip greens(canned),0.97,per pound,0.65,0.353,pounds,0.52
 Turnip greens(frozen),1.47,per pound,0.776,0.353,pounds,0.67
 Grape tomatoes,3.29,per pound,0.91,0.375,pounds,1.35
 Cherry tomatoes,3.29,per pound,0.91,0.375,pounds,1.35
 Roma tomatoes,1.24,per pound,0.91,0.375,pounds,0.51
-Beefsteak tomatoes,3.16,per pound,0.91,0.375,pounds,1.30
-Tomatoes(canned),0.92,per pound,1,0.540,pounds,0.50
-Sweet potatoes,0.92,per pound,0.811,0.441,pounds,0.50
+Beefsteak tomatoes,3.16,per pound,0.91,0.375,pounds,1.3
+Tomatoes(canned),0.92,per pound,1,0.54,pounds,0.5
+Sweet potatoes,0.92,per pound,0.811,0.441,pounds,0.5
+Chocolate  candy,4.21, per pound,,,,
+Cookies,2.73, per pound,,,,
+Corn chips,3.46, per pound,,,,
+Crackers,2.86, per pound,,,,
+Cupcakes ,2.72, per pound,,,,
+Danish ,2.92, per pound,,,,
+Donuts ,2.80, per pound,,,,
+Fruit rolls,5.72, per pound,,,,
+Graham crackers ,2.59, per pound,,,,
+Granola  bars,4.39, per pound,,,,
+Ice cream,1.61,per pound,,,,
+Muffins,4.04, per pound,,,,
+"Pizza, from frozen",2.84, per pound,,,,
+Popsicles and bars,0.34,per count,,,,
+Potato chips,3.86, per pound,,,,
+Pretzels,2.60, per pound,,,,
+"Pudding, ready-to-eat",1.49, per pound,,,,
+Sandwich crackers,2.43, per pound,,,,
+Toaster pastries,2.03, per pound,,,,
+Tortilla chips,2.97, per pound,,,,
