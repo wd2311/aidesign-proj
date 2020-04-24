@@ -1,4 +1,4 @@
-Name,Average retail price,Unit,Preparation yield factor,Size of a cup equivalent,Unit,Average price per cup equivalent
+Name,Average retail price,Unit_retail,Preparation yield factor,Size of a cup equivalent,Unit_cup,Average price per cup equivalent
 Apple,1.57,per pound,0.9,0.243,pounds,0.42
 Applesauce,1.08,per pound,1,0.540,pounds,0.58
 Apple Juice,0.73,per pint,1,8,fl oz,0.36
@@ -14,7 +14,7 @@ Blueberries,4.73,per pound,0.95,0.320,pounds,1.59
 Blueberries(frozen),3.64,per pound,1,0.331,pounds,1.12
 Cantaloupe,0.54,per pound,0.51,0.375,pounds,0.39
 Cranberries(dried),4.79,per pound,1,0.123,pounds,0.59
-Cherries,3.59.per pound,0.92,0.342,pounds,1.33
+Cherries,3.59,per pound,0.92,0.342,pounds,1.33
 Cherries(canned),3.52,per pound,0.65,0.441,pounds,2.39
 Dates,4.79,per pound,1,0.165,pounds,0.79
 Figs(dried),5.75,per pound,0.96,0.165,pounds,0.99
