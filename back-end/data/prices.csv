@@ -1,4 +1,4 @@
-Name,Average retail price,Preparation yield factor,Size of a cup equivalent,Average price per cup equivalent
+Name,Average retail price,Unit,Preparation yield factor,Size of a cup equivalent,Unit,Average price per cup equivalent
 Apple,1.57,per pound,0.9,0.243,pounds,0.42
 Applesauce,1.08,per pound,1,0.540,pounds,0.58
 Apple Juice,0.73,per pint,1,8,fl oz,0.36
