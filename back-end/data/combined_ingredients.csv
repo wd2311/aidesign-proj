@@ -1,0 +1,424 @@
+,Ingredient,Average retail price,Unit,Refrigerator Storage,Freezer Storage
+0,basmati rice; radishes; fresh mint and basil leaves,1.31,per pound,2 years,
+1,accompaniments: white rice; hot sauce; sliced avocado,2.24,per pound,2 years,
+2,special equipment: potato ricer,0.56,per pound,2 years,
+3,special equipment: a potato ricer,0.56,per pound,2 years,
+4,potato ricer,0.56,per pound,2 years,
+5,accompaniment: cooked white rice; mango chutney,1.38,per pound,2 years,
+6,"shredded lettuce, julienned radishes, chopped onion oregano",1.31,per pound,2 weeks,Freeze poorly
+7,radishes,1.31,per pound,2 weeks,Freeze poorly
+8,"pickled radishes, carrots, and celery root",1.31,per pound,2 weeks,Freeze poorly
+9,black radishes,1.31,per pound,2 weeks,Freeze poorly
+10,daikon radishes,1.31,per pound,2 weeks,Freeze poorly
+11,baby radishes,1.31,per pound,2 weeks,Freeze poorly
+12,"radishes, sweet gherkins",1.31,per pound,2 weeks,Freeze poorly
+13,radishes radishes,1.31,per pound,2 weeks,Freeze poorly
+14,red radishes,1.31,per pound,2 weeks,Freeze poorly
+15,lime radishes,1.31,per pound,2 weeks,Freeze poorly
+16,"cilantro sprigs, sliced radishes",1.31,per pound,2 weeks,Freeze poorly
+17,radishes celery,1.31,per pound,2 weeks,Freeze poorly
+18,"fresh chives, thyme, and radishes",1.31,per pound,2 weeks,Freeze poorly
+19,oz radishes,1.31,per pound,2 weeks,Freeze poorly
+20,french breakfast radishes,1.31,per pound,2 weeks,Freeze poorly
+21,watermelon radish radishes,0.33,per pound,2 weeks,Freeze poorly
+22,watermelon radishes radishes,0.33,per pound,2 weeks,Freeze poorly
+23,watermelon radishes,0.33,per pound,2 weeks,Freeze poorly
+24,red onion radishes,1.04,per pound,2 weeks,Freeze poorly
+25,iceberg lettuce radishes,1.21,per pound,2 weeks,Freeze poorly
+26,flaky sea salt and horseradish-yogurt sauce,1.31,per pound,1 week after sell-by date,1-2 months
+27,horseradish-yogurt sauce,1.31,per pound,1 week after sell-by date,1-2 months
+28,cherry yogurt,3.59.per pound,0.92,1 week after sell-by date,1-2 months
+29,banana-strawberry frozen yogurt,0.57,per pound,1 week after sell-by date,1-2 months
+30,banana-strawberry yogurt,0.57,per pound,1 week after sell-by date,1-2 months
+31,roasted beets with horseradish crème fraîche,1.31,per pound,2 weeks,8-12 months
+32,beer and horseradish mustard,1.31,per pound,6-8 months,8-12 months
+33,mustard-horseradish sauce,1.31,per pound,6-8 months,8-12 months
+34,mustard mashed potatoes,0.56,per pound,6-8 months,8-12 months
+35,accompaniment:mustard mashed potatoes,0.56,per pound,6-8 months,8-12 months
+36,peach mustard,1.59,per pound,6-8 months,8-12 months
+37,stemmed mustard greens,2.57,per pound,6-8 months,8-12 months
+38,mustard greens or kale,2.57,per pound,6-8 months,8-12 months
+39,curly mustard greens,2.57,per pound,6-8 months,8-12 months
+40,coarsely chopped trimmed mustard greens,2.57,per pound,6-8 months,8-12 months
+41,mustard greens,2.57,per pound,6-8 months,8-12 months
+42,"mustard greens, turnip greens",2.57,per pound,6-8 months,8-12 months
+43,stemmed red mustard greens,2.57,per pound,6-8 months,8-12 months
+44,baby mustard greens,2.57,per pound,6-8 months,8-12 months
+45,6-7-ounce mustard greens,2.57,per pound,6-8 months,8-12 months
+46,pickled mustard greens,2.57,per pound,6-8 months,8-12 months
+47,lb mustard greens,2.57,per pound,6-8 months,8-12 months
+48,baby kale mustard greens,2.81,per pound,6-8 months,8-12 months
+49,"mixed turnip, mustard, and collard greens",2.63,per pound,6-8 months,8-12 months
+50,"each matchstick-size pieces peeled carrots, cucumbers, and radishes",1.31,per pound,2 weeks,8-12 months
+51,carrots and onions,1.04,per pound,2 weeks,8-12 months
+52,orange carrots,1.04,per pound,2 weeks,8-12 months
+53,sour cream horseradish,1.31,per pound,7-21 days,Freezes poorly
+54,sour cream and onion dip,1.04,per pound,7-21 days,Freezes poorly
+55,pineapple spears and lemon slices,0.63,per pound,2-3 days,8-12 months
+56,"pineapple spears, maraschino cherries",0.63,per pound,2-3 days,8-12 months
+57,pineapple spears,0.63,per pound,2-3 days,8-12 months
+58,pears dates,1.46,per pound,2-3 days,8-12 months
+59,anjou pears,1.46,per pound,2-3 days,8-12 months
+60,seckel pears,1.46,per pound,2-3 days,8-12 months
+61,hard pears,1.46,per pound,2-3 days,8-12 months
+62,sour pickle spears,1.46,per pound,2-3 days,8-12 months
+63,barlett pears,1.46,per pound,2-3 days,8-12 months
+64,lb pears,1.46,per pound,2-3 days,8-12 months
+65,pickled pears,1.46,per pound,2-3 days,8-12 months
+66,asian pears**,1.46,per pound,2-3 days,8-12 months
+67,pears,1.46,per pound,2-3 days,8-12 months
+68,cooking pears,1.46,per pound,2-3 days,8-12 months
+69,moonglow pears,1.46,per pound,2-3 days,8-12 months
+70,firm-ripe pears lemon,1.46,per pound,2-3 days,8-12 months
+71,poached pears with cranberry puree,1.46,per pound,2-3 days,8-12 months
+72,bose pears,1.46,per pound,2-3 days,8-12 months
+73,pita chips and/or cucumber spears,1.46,per pound,2-3 days,8-12 months
+74,dill pickle spears,1.46,per pound,2-3 days,8-12 months
+75,asian pears,1.46,per pound,2-3 days,8-12 months
+76,yellow belgian endive spears,1.46,per pound,2-3 days,8-12 months
+77,7-ounce asian pears,1.46,per pound,2-3 days,8-12 months
+78,bosc pears,1.46,per pound,2-3 days,8-12 months
+79,bartlett pears,1.46,per pound,2-3 days,8-12 months
+80,firm-ripe pears,1.46,per pound,2-3 days,8-12 months
+81,bosc pears (1 to 1 1/4 pounds total,1.46,per pound,2-3 days,8-12 months
+82,endive radicchio spears,1.46,per pound,2-3 days,8-12 months
+83,cucumber spears,1.46,per pound,2-3 days,8-12 months
+84,firm-ripe red bartlett pears,1.46,per pound,2-3 days,8-12 months
+85,underripe medium-sized pears,1.46,per pound,2-3 days,8-12 months
+86,mango spears,1.38,per pound,2-3 days,8-12 months
+87,firm-ripe baby pineapples with leaves,0.63,per pound,5 days,8-12 months
+88,pineapples,0.63,per pound,5 days,8-12 months
+89,pineapple strawberries,0.63,per pound,5 days at room temperature,Freeze poorly
+90,strawberries strawberry jam,2.36,per pound,5 days at room temperature,Freeze poorly
+91,berries mango,1.38,per pound,5 days at room temperature,Freeze poorly
+92,fruit strawberries and kiwifruit,2.04,per pound,5 days at room temperature,Freeze poorly
+93,4 1/2-pound pineapple,0.63,per pound,3-5 days at room temperature,6 months
+94,2 3/4-pound piece of watermelon,0.33,per pound,3-5 days at room temperature,6 months
+95,1/2-pound potato,0.56,per pound,3-5 days at room temperature,6 months
+96,3-to 3 1/4-pound butternut squash,1.24,per pound,3-5 days at room temperature,6 months
+97,1 3/4-pound papaya,1.30,per pound,3-5 days at room temperature,6 months
+98,"honeydew melon (5 pounds), chilled",0.80,per pound,3-5 days at room temperature,6 months
+99,cantaloupe melon (1 1/2 pounds),0.54,per pound,3-5 days at room temperature,6 months
+100,1 3/4-pound cantaloupe,0.54,per pound,3-5 days at room temperature,6 months
+101,1 1/2-pound red cabbage,1.06,per pound,3-5 days at room temperature,6 months
+102,mixed greens with raspberry vinaigrette,6.986,per pound,3-5 days,8-12 months
+103,"onion greens, to garnish",1.04,per pound,3-5 days,8-12 months
+104,medium-size greens spinach,3.83,per pound,3-5 days,8-12 months
+105,"greens beet greens, swiss chard, kale, collards, mustard greens, turnip greens",2.81,per pound,3-5 days,8-12 months
+106,"salad greens baby kale, or spinach",2.81,per pound,3-5 days,8-12 months
+107,"leafy greens (kale, collards, and mustard",2.81,per pound,3-5 days,8-12 months
+108,"greens baby kale, or collards",2.81,per pound,3-5 days,8-12 months
+109,collard greens slaw,2.63,per pound,3-5 days,8-12 months
+110,collard greens,2.63,per pound,3-5 days,8-12 months
+111,lb collard greens,2.63,per pound,3-5 days,8-12 months
+112,turnip greens or kale,2.47,per pound,3-5 days,8-12 months
+113,turnip greens,2.47,per pound,3-5 days,8-12 months
+114,"turnip greens, kale, or mustard greens",2.47,per pound,3-5 days,8-12 months
+115,oz pear tomatoes,1.46,per pound,1 week,8-12 months
+116,yellow pear tomatoes tomatoes,1.46,per pound,1 week,8-12 months
+117,yellow pear tomatoes,1.46,per pound,1 week,8-12 months
+118,pear tomatoes,1.46,per pound,1 week,8-12 months
+119,cherry tomatoes tomatoes,3.59.per pound,0.92,1 week,8-12 months
+120,basket cherry tomatoes,3.59.per pound,0.92,1 week,8-12 months
+121,cherry tomatoes,3.59.per pound,0.92,1 week,8-12 months
+122,lb cherry tomatoes,3.59.per pound,0.92,1 week,8-12 months
+123,cherry tomatoes tomatoes tomatoes,3.59.per pound,0.92,1 week,8-12 months
+124,200 grams cherry tomatoes,3.59.per pound,0.92,1 week,8-12 months
+125,heirloom cherry tomatoes,3.59.per pound,0.92,1 week,8-12 months
+126,mixed cherry tomatoes,3.59.per pound,0.92,1 week,8-12 months
+127,tomato cherry tomatoes,3.59.per pound,0.92,1 week,8-12 months
+128,bags cherry tomatoes,3.59.per pound,0.92,1 week,8-12 months
+129,red cherry tomatoes,3.59.per pound,0.92,1 week,8-12 months
+130,baskets cherry tomatoes,3.59.per pound,0.92,1 week,8-12 months
+131,vine-ripened cherry tomatoes,3.59.per pound,0.92,1 week,8-12 months
+132,mixed-color cherry tomatoes,3.59.per pound,0.92,1 week,8-12 months
+133,confit cherry tomatoes,3.59.per pound,0.92,1 week,8-12 months
+134,yellow cherry tomatoes,3.59.per pound,0.92,1 week,8-12 months
+135,cherry tomato (about 20 tomatoes),3.59.per pound,0.92,1 week,8-12 months
+136,grape tomatoes tomatoes,2.09,per pound,1 week,8-12 months
+137,grape tomatoes,2.09,per pound,1 week,8-12 months
+138,tomatoes with green pepper and onion,1.04,per pound,1 week,8-12 months
+139,tomatoes with garlic and onion,1.04,per pound,1 week,8-12 months
+140,"red, yellow, and orange tomatoes",1.04,per pound,1 week,8-12 months
+141,"small red, yellow, and orange cherry tomatoes",1.04,per pound,1 week,8-12 months
+142,lbs plum tomatoes,1.83,per pound,1 week,8-12 months
+143,yellow heirloom plum tomatoes,1.83,per pound,1 week,8-12 months
+144,plum tomatoes,1.83,per pound,1 week,8-12 months
+145,large ripe plum tomatoes,1.83,per pound,1 week,8-12 months
+146,chopped seeded diced plum tomatoes,1.83,per pound,1 week,8-12 months
+147,lb plum tomatoes,1.83,per pound,1 week,8-12 months
+148,yellow baby plum tomatoes tomatoes,1.83,per pound,1 week,8-12 months
+149,plum tomatoes tomatoes,1.83,per pound,1 week,8-12 months
+150,plum tomatoes tomatoes diced,1.83,per pound,1 week,8-12 months
+151,italian plum tomatoes,1.83,per pound,1 week,8-12 months
+152,"plum tomatoes, seeded, cut into 1/4-inch pieces",1.83,per pound,1 week,8-12 months
+153,"plum tomatoes, drained, reserving juice",1.83,per pound,1 week,8-12 months
+154,tomatoes plum tomatoes,1.83,per pound,1 week,8-12 months
+155,plum tomatoes tomatoes chopped,1.83,per pound,1 week,8-12 months
+156,red heirloom plum tomatoes,1.83,per pound,1 week,8-12 months
+157,lb ripe plum tomatoes,1.83,per pound,1 week,8-12 months
+158,"plum tomatoes, drained, seeded, and diced",1.83,per pound,1 week,8-12 months
+159,iceberg lettuce tomatoes cheddar cheese,1.21,per pound,1 week,8-12 months
+160,tomatoes celery sticks,2.20,per pound,1 week,8-12 months
+161,lb beefsteak tomatoes,3.16,per pound,1 week,8-12 months
+162,medium beefsteak tomatoes,3.16,per pound,1 week,8-12 months
+163,yellow beefsteak tomatoes,3.16,per pound,1 week,8-12 months
+164,large beefsteak tomatoes,3.16,per pound,1 week,8-12 months
+165,beefsteak tomatoes,3.16,per pound,1 week,8-12 months
+166,tomatoes with green peppers,1.41,per pound,1 week,8-12 months
+167,roma tomatoes,1.24,per pound,1 week,8-12 months
+168,lb roma tomatoes,1.24,per pound,1 week,8-12 months
+169,pearled barley,1.46,per pound,2 years,
+170,pearl barley,1.46,per pound,2 years,
+171,"vegetables cauliflower, carrots, and pearl onions",1.46,per pound,1 week,8-12 months
+172,accompaniment: potato cauliflower,0.56,per pound,1 week,8-12 months
+173,cauliflower florets,3.27,per pound,1 week,8-12 months
+174,lb jerusalem artichokes,2.21,per pound,2-3 days,Freeze poorly
+175,"grilled lemons, baby artichokes",2.21,per pound,2-3 days,Freeze poorly
+176,lb/455 g jerusalem artichokes,2.21,per pound,2-3 days,Freeze poorly
+177,large artichokes,2.21,per pound,2-3 days,Freeze poorly
+178,jerusalem artichokes*,2.21,per pound,2-3 days,Freeze poorly
+179,"artichokes artichoke hearts, thawed",2.21,per pound,2-3 days,Freeze poorly
+180,special equipment: a 6- to 8-qt heavy pot wide enough to hold artichokes,2.21,per pound,2-3 days,Freeze poorly
+181,jerusalem artichokes,2.21,per pound,2-3 days,Freeze poorly
+182,ingredient info: jerusalem artichokes,2.21,per pound,2-3 days,Freeze poorly
+183,"baby artichokes, 6 globe artichokes artichoke hearts",2.21,per pound,2-3 days,Freeze poorly
+184,lb artichokes,2.21,per pound,2-3 days,Freeze poorly
+185,purple artichokes,2.21,per pound,2-3 days,Freeze poorly
+186,jar marinated artichokes,2.21,per pound,2-3 days,Freeze poorly
+187,artichokes,2.21,per pound,2-3 days,Freeze poorly
+188,jerusalem artichokes *,2.21,per pound,2-3 days,Freeze poorly
+189,baby artichokes,2.21,per pound,2-3 days,Freeze poorly
+190,globe artichokes,2.21,per pound,2-3 days,Freeze poorly
+191,relishes watermelon bell peppers,0.33,per pound,1 week,8-12 months
+192,red cherry peppers red chilies,3.59.per pound,0.92,1 week,8-12 months
+193,pickled cherry peppers,3.59.per pound,0.92,1 week,8-12 months
+194,cherry peppers peppers,3.59.per pound,0.92,1 week,8-12 months
+195,hot cherry peppers,3.59.per pound,0.92,1 week,8-12 months
+196,cherry peppers,3.59.per pound,0.92,1 week,8-12 months
+197,onions and bell peppers,1.04,per pound,1 week,8-12 months
+198,"orange, and red bell peppers",1.04,per pound,1 week,8-12 months
+199,bell peppers orange peppers,1.04,per pound,1 week,8-12 months
+200,"bell peppers (1 yellow, 1 orange",1.04,per pound,1 week,8-12 months
+201,bell peppers orange,1.04,per pound,1 week,8-12 months
+202,"mini sweet peppers (1 yellow, 1 orange",1.04,per pound,1 week,8-12 months
+203,orange bell peppers,1.04,per pound,1 week,8-12 months
+204,"red peppers, drained, cut into thin strips",2.28,per pound,1 week,8-12 months
+205,sweet red peppers,2.28,per pound,1 week,8-12 months
+206,roasted red peppers,2.28,per pound,1 week,8-12 months
+207,red peppers,2.28,per pound,1 week,8-12 months
+208,red bell pepper red peppers,2.28,per pound,1 week,8-12 months
+209,peppers red peppers peppers,2.28,per pound,1 week,8-12 months
+210,"sweet red peppers, such as frying peppers, cubanelles or bell peppers",2.28,per pound,1 week,8-12 months
+211,"red peppers, drained, seeded, and coarsely chopped",2.28,per pound,1 week,8-12 months
+212,"red peppers, drained, cut into strips",2.28,per pound,1 week,8-12 months
+213,green peppers,1.41,per pound,1 week,8-12 months
+214,cherrystone clams,3.59.per pound,0.92,"1-2 days (shucked)
+2-3 days (live)","3-6 months
+2-3 months"
+215,muscat grapes grapes,2.09,per pound,1 week,8-12 months
+216,green grapes,2.09,per pound,1 week,8-12 months
+217,grapes,2.09,per pound,1 week,8-12 months
+218,champagne grapes,2.09,per pound,1 week,8-12 months
+219,concord grapes grapes,2.09,per pound,1 week,8-12 months
+220,concord grapes,2.09,per pound,1 week,8-12 months
+221,red grapes,2.09,per pound,1 week,8-12 months
+222,purchased lemon-infused grapeseed oil,2.09,per pound,1 week,8-12 months
+223,tbsp grapeseed oil,2.09,per pound,1 week,8-12 months
+224,black grapes,2.09,per pound,1 week,8-12 months
+225,green seedless grapes,2.09,per pound,1 week,8-12 months
+226,grapeseed oil*,2.09,per pound,1 week,8-12 months
+227,grapeseed oil oil,2.09,per pound,1 week,8-12 months
+228,black corinth grapes,2.09,per pound,1 week,8-12 months
+229,grapeseed oil,2.09,per pound,1 week,8-12 months
+230,grape nuts cereal,2.09,per pound,6 months,1 year
+231,grape nuts,2.09,per pound,6 months,1 year
+232,chestnuts orange halves*,1.04,per pound,6 months,1 year
+233,batch orange-brown butter wet nuts,1.04,per pound,6 months,1 year
+234,"onion puree olive oil, 1 onion vinegar",1.04,per pound,6 months,
+235,olive oil for brushing onions,1.04,per pound,6 months,
+236,olive oil onion,1.04,per pound,6 months,
+237,olive oil for brushing onion and tortillas,1.04,per pound,6 months,
+238,"olive oil, plus additional for potatoes",0.56,per pound,6 months,
+239,olive oil and garlic whipped potatoes,0.56,per pound,6 months,
+240,olive oil mango salsa,1.38,per pound,6 months,
+241,"onion, celery and fennel",1.04,per pound,1 week,8-12 months
+242,celery root mashed potatoes,0.56,per pound,1 week,8-12 months
+243,celery root puree potatoes,0.56,per pound,1 week,8-12 months
+244,"vegetables celery root, purple potatoes potatoes",0.56,per pound,1 week,8-12 months
+245,accompaniment if desired: apple and celery salad,1.57,per pound,1 week,8-12 months
+246,"lb celery root, and sweet potatoes",0.92,per pound,1 week,8-12 months
+247,carrot and celery sticks,2.20,per pound,1 week,8-12 months
+248,celery sticks,2.20,per pound,1 week,8-12 months
+249,garnish parsley onion olives,1.04,per pound,2-3 days,3-4 months
+250,parsley broccoli spinach tomatoes,3.83,per pound,2-3 days,3-4 months
+251,green onion pork sausage,1.04,per pound,1-2 days,1-2 months
+252,chicken-apple sausages,1.57,per pound,1-2 days,1-2 months
+253,whole green onions green onions,1.04,per pound,3-5 days,Freeze poorly
+254,cherries orange,1.04,per pound,2-3 days,8-12 months
+255,orange cream cheese frosting,1.04,per pound,2 weeks,Freezes poorly
+256,cream cheese-orange frosting,1.04,per pound,2 weeks,Freezes poorly
+257,firm-ripe 6-to 8-ounces avocados,2.24,per pound,3-5 days,8-12 months
+258,firm-ripe california avocados,2.24,per pound,3-5 days,8-12 months
+259,hass avocados,2.24,per pound,3-5 days,8-12 months
+260,avocados,2.24,per pound,3-5 days,8-12 months
+261,california avocados,2.24,per pound,3-5 days,8-12 months
+262,large ripe avocados,2.24,per pound,3-5 days,8-12 months
+263,firm-ripe avocados,2.24,per pound,3-5 days,8-12 months
+264,avocados water,2.24,per pound,3-5 days,8-12 months
+265,"bagels, capers, sliced avocados, sliced cucumbers, watercress, and sliced scallions",2.24,per pound,3-5 days,8-12 months
+266,hass ripe avocados,2.24,per pound,3-5 days,8-12 months
+267,asparagus stalks,3.21,per pound,2-3 days,8-12 months
+268,asparagus spears,3.21,per pound,2-3 days,8-12 months
+269,lb asparagus,3.21,per pound,2-3 days,8-12 months
+270,"asparagus spears, trimmed, cut into 1 3/4-inch pieces",3.21,per pound,2-3 days,8-12 months
+271,green asparagus,3.21,per pound,2-3 days,8-12 months
+272,"asparagus, trimmed, cut into 4-inch lengths",3.21,per pound,2-3 days,8-12 months
+273,white asparagus,3.21,per pound,2-3 days,8-12 months
+274,asparagus with sauce maltaise,3.21,per pound,2-3 days,8-12 months
+275,"asparagus spears (about 2 pounds), trimmed to about 5 inchesand peeled asparagus spears",3.21,per pound,2-3 days,8-12 months
+276,asparagus spear,3.21,per pound,2-3 days,8-12 months
+277,asparagus,3.21,per pound,2-3 days,8-12 months
+278,"asparagus spears, trimmed, cut into 1-inch pieces",3.21,per pound,2-3 days,8-12 months
+279,asparagus tips,3.21,per pound,2-3 days,8-12 months
+280,"asparagus spears, trimmed to 4-inch lengths",3.21,per pound,2-3 days,8-12 months
+281,asparagus tips peas,3.21,per pound,2-3 days,8-12 months
+282,"3/4""-inch asparagus",3.21,per pound,2-3 days,8-12 months
+283,potato pasta,0.56,per pound,2 years,
+284,potato pasta,0.56,per pound,2 years,
+285,recipe fresh spinach pasta dough,3.83,per pound,2 years,
+286,recipe fresh spinach pasta dough,3.83,per pound,2 years,
+287,accompaniment: purple-potato and crab gratin,0.56,per pound,1-2 days (in shell),2-3 months
+288,crab apple jelly,1.57,per pound,1-2 days (in shell),2-3 months
+289,crabapples,1.57,per pound,1-2 days (in shell),2-3 months
+290,accompaniment: spicy garlic potatoes and zucchini,0.56,per pound,3-5 days,8-12 months
+291,apple bananas,1.57,per pound,5 days,8-12 months
+292,"ripe bananas, peeled and halved",0.57,per pound,5 days,8-12 months
+293,bananas,0.57,per pound,5 days,8-12 months
+294,finger bananas bananas,0.57,per pound,5 days,8-12 months
+295,bananas split and,0.57,per pound,5 days,8-12 months
+296,very ripe large bananas,0.57,per pound,5 days,8-12 months
+297,"bananas, cut into 1/4-inch dice",0.57,per pound,5 days,8-12 months
+298,firm-ripe bananas,0.57,per pound,5 days,8-12 months
+299,chinese bananas (dwarf bananas bananas,0.57,per pound,5 days,8-12 months
+300,"bananas, cut lengthwise",0.57,per pound,5 days,8-12 months
+301,finger bananas,0.57,per pound,5 days,8-12 months
+302,bananas (from about 3 bananas),0.57,per pound,5 days,8-12 months
+303,"ripe bananas, mashed",0.57,per pound,5 days,8-12 months
+304,ripe bananas,0.57,per pound,5 days,8-12 months
+305,mashed ripe bananas (about 3 large),0.57,per pound,5 days,8-12 months
+306,small ripe finger bananas,0.57,per pound,5 days,8-12 months
+307,overly ripe bananas,0.57,per pound,5 days,8-12 months
+308,bananas slices (optional),0.57,per pound,5 days,8-12 months
+309,"small bananas, peeled, quartered lengthwise, trimmed to 4 inches",0.57,per pound,5 days,8-12 months
+310,bananas (about 3 large),0.57,per pound,5 days,8-12 months
+311,overripe bananas,0.57,per pound,5 days,8-12 months
+312,batch stovetop butterscotch apples and cranberries,1.57,per pound,2-3 days,8-12 months
+313,pomegranate seeds cranberries,2.17,per pound,2-3 days,8-12 months
+314,applewood-smoked bacon,1.57,per pound,1 week,1 month
+315,apple eggplants,1.57,per pound,2-3 days,8-12 months
+316,250 g apricots,3.04,per pound,1 month,8-12 months
+317,1/3-inch cubes apricots,3.04,per pound,1 month,8-12 months
+318,candied apricots,3.04,per pound,1 month,8-12 months
+319,firm-ripe apricots,3.04,per pound,1 month,8-12 months
+320,lb apricots,3.04,per pound,1 month,8-12 months
+321,california apricots**,3.04,per pound,1 month,8-12 months
+322,100 g apricots,3.04,per pound,1 month,8-12 months
+323,california apricots,3.04,per pound,1 month,8-12 months
+324,turkish apricots,3.04,per pound,1 month,8-12 months
+325,apricot preserves turkish apricots,3.04,per pound,1 month,8-12 months
+326,lb firm-ripe apricots,3.04,per pound,1 month,8-12 months
+327,fruits apricots,3.04,per pound,1 month,8-12 months
+328,apricots,3.04,per pound,1 month,8-12 months
+329,mango apricots,1.38,per pound,1 month,8-12 months
+330,sautéed peaches,1.59,per pound,Ripen at room temperature,8-12 months
+331,lb ripe peaches,1.59,per pound,Ripen at room temperature,8-12 months
+332,peaches,1.59,per pound,Ripen at room temperature,8-12 months
+333,spiced peaches and raspberries,1.59,per pound,Ripen at room temperature,8-12 months
+334,dried peaches,1.59,per pound,Ripen at room temperature,8-12 months
+335,unsweetened peaches,1.59,per pound,Ripen at room temperature,8-12 months
+336,firm-ripe peaches,1.59,per pound,Ripen at room temperature,8-12 months
+337,lb firm-ripe peaches,1.59,per pound,Ripen at room temperature,8-12 months
+338,organic peaches,1.59,per pound,Ripen at room temperature,8-12 months
+339,frozen peaches,1.59,per pound,Ripen at room temperature,8-12 months
+340,lb peaches,1.59,per pound,Ripen at room temperature,8-12 months
+341,white peaches,1.59,per pound,Ripen at room temperature,8-12 months
+342,yellow peaches,1.59,per pound,Ripen at room temperature,8-12 months
+343,frozen unsweetened sliced peaches,1.59,per pound,Ripen at room temperature,8-12 months
+344,"bottled brandied peaches, drained, reserving 1/4 cup syrup, and diced",1.59,per pound,Ripen at room temperature,8-12 months
+345,sugar peaches,1.59,per pound,Ripen at room temperature,8-12 months
+346,12 ounces nectarines and peaches,1.59,per pound,1 week,8-12 months
+347,nectarines plums,1.83,per pound,1 week,8-12 months
+348,red-skinned plums,1.83,per pound,Ripen at room temperature,8-12 months
+349,dark red plums,1.83,per pound,Ripen at room temperature,8-12 months
+350,plums plums,1.83,per pound,Ripen at room temperature,8-12 months
+351,plums,1.83,per pound,Ripen at room temperature,8-12 months
+352,italian prune plums,1.83,per pound,Ripen at room temperature,8-12 months
+353,prunes plums),1.83,per pound,Ripen at room temperature,8-12 months
+354,black plums,1.83,per pound,Ripen at room temperature,8-12 months
+355,red plums,1.83,per pound,Ripen at room temperature,8-12 months
+356,tea-poached plums,1.83,per pound,Ripen at room temperature,8-12 months
+357,lb plums,1.83,per pound,Ripen at room temperature,8-12 months
+358,firm-ripe red plums,1.83,per pound,Ripen at room temperature,8-12 months
+359,angelino plums*,1.83,per pound,1-3 days at room temperature,2 months
+360,"black lentils, green lentils, or chickpeas",1.39,per pound,3-5 days,8-12 months
+361,peas green beans,2.14,per pound,3-5 days,8-12 months
+362,green beans beans,2.14,per pound,1-2 weeks,8-12 months
+363,spicy pickled green beans and fennel,2.14,per pound,1-2 weeks,8-12 months
+364,haricots verts french green beans),2.14,per pound,1-2 weeks,8-12 months
+365,haricots verts french green beans beans,2.14,per pound,1-2 weeks,8-12 months
+366,haricots verts green beans,2.14,per pound,1-2 weeks,8-12 months
+367,green beans peas,2.14,per pound,1-2 weeks,8-12 months
+368,oz green beans,2.14,per pound,1-2 weeks,8-12 months
+369,blue lake green beans,2.14,per pound,1-2 weeks,8-12 months
+370,chinese long beans green beans,2.14,per pound,1-2 weeks,8-12 months
+371,green beans,2.14,per pound,1-2 weeks,8-12 months
+372,french-cut green beans,2.14,per pound,1-2 weeks,8-12 months
+373,okra,3.21,per pound,3-5 days,8-12 months
+374,lb okra,3.21,per pound,3-5 days,8-12 months
+375,okra pods,3.21,per pound,3-5 days,8-12 months
+376,"okra, cut crosswise into 1/2-inch pieces (2 cups), or 1",3.21,per pound,3-5 days,8-12 months
+377,butternut squash winter squash,1.24,per pound,Store in a dry place,8-12 months
+378,papayas,1.30,per pound,5 days,8-12 months
+379,honeydew melons,0.80,per pound,Ripen at room temperature,8-12 months
+380,kiwis,2.04,per pound,1-2 days,8-12 months
+381,baby kiwis*,2.04,per pound,1-2 days,8-12 months
+382,accompaniments: mayonnaise; mustard; iceberg lettuce; dill pickles,1.21,per pound,2 months,Freeze poorly
+383,grilled red and green cabbage slaw,0.58,per pound,1 week,8-12 months
+384,green cabbage (about 2 pounds),0.58,per pound,1 week,8-12 months
+385,green cabbage,0.58,per pound,1 week,8-12 months
+386,lightweight young green cabbage,0.58,per pound,1 week,8-12 months
+387,lb green cabbage,0.58,per pound,1 week,8-12 months
+388,green cabbage (3 pounds),0.58,per pound,1 week,8-12 months
+389,fine-shredded green cabbage,0.58,per pound,1 week,8-12 months
+390,"red cabbage, cut into 1/2-inch-wide strips",1.06,per pound,1 week,8-12 months
+391,red cabbage,1.06,per pound,1 week,8-12 months
+392,lb red cabbage,1.06,per pound,1 week,8-12 months
+393,wedges red cabbage,1.06,per pound,1 week,8-12 months
+394,cabbage red cabbage cabbage,1.06,per pound,1 week,8-12 months
+395,red cabbage leaves,1.06,per pound,1 week,8-12 months
+396,accompaniment: red cabbage and onions,1.06,per pound,1 week,8-12 months
+397,broccoli florets broccoli,2.57,per pound,3-5 days,8-12 months
+398,broccolini broccoli florets,2.57,per pound,3-5 days,8-12 months
+399,broccoli florets,2.57,per pound,3-5 days,8-12 months
+400,broccoli acorn squash,1.17,per pound,3-5 days,8-12 months
+401,broccoli heads,1.64,per pound,3-5 days,8-12 months
+402,frozen baby lima beans,1.73,per pound,3-5 days,8-12 months
+403,box frozen lima beans,1.73,per pound,3-5 days,8-12 months
+404,dry lima beans,1.73,per pound,3-5 days,8-12 months
+405,lb fresh lima beans beans,1.73,per pound,3-5 days,8-12 months
+406,bag frozen baby lima beans,1.73,per pound,3-5 days,8-12 months
+407,dried large lima beans,1.73,per pound,3-5 days,8-12 months
+408,butter beans baby lima beans,1.73,per pound,3-5 days,8-12 months
+409,lima beans,1.73,per pound,3-5 days,8-12 months
+410,frozen large lima beans,1.73,per pound,3-5 days,8-12 months
+411,bag frozen lima beans,1.73,per pound,3-5 days,8-12 months
+412,corn corn and lima beans,1.73,per pound,3-5 days,8-12 months
+413,"dried gigante, baby lima beans",1.73,per pound,3-5 days,8-12 months
+414,beans frozen baby lima beans,1.73,per pound,3-5 days,8-12 months
+415,dried baby lima beans white beans,1.73,per pound,3-5 days,8-12 months
+416,fava beans baby lima beans,1.73,per pound,3-5 days,8-12 months
+417,lb dried large lima beans,1.73,per pound,3-5 days,8-12 months
+418,baby lima beans,1.73,per pound,3-5 days,8-12 months
+419,brussels sprouts brussels sprouts,2.76,per pound,3-5 days,8-12 months
+420,brussels sprouts,2.76,per pound,3-5 days,8-12 months

@@ -9,10 +9,9 @@ DBSession = sessionmaker()
 DBSession.bind = engine
 session = DBSession()
 
-recipe_query = session.query(Recipe).all()
-for item in recipe_query:
-    print(item.name)
-    print(item.directions)
+ingredient_entry = session.query(Ingredient).filter_by(name='currants').first()
+for recipe_ingredient in ingredient_entry.recipes:
+    print(f'{recipe_ingredient.recipe.name}')
 
 
 '''

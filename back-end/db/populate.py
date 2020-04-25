@@ -1,7 +1,12 @@
+import json
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import csv
+from sqlalchemy.sql import exists
+
 from declarative import Base, Recipe, Ingredient, Allergy, Allergen, RecipeIngredient
+
+import progressbar
 
 engine = create_engine('sqlite:///recipe.db')
 Base.metadata.bind = engine
@@ -9,96 +14,38 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 
 session = DBSession()
+with open('../data/combined_recipes_with_parsed_ingredients.json', 'r') as json_file:
+    recipes = json.load(json_file)
 
-#### add from recipes
-def load_recipes(recipes_filename):
+for recipe in progressbar.progressbar(recipes):
+    if ('name' not in recipe) or ('method' not in recipe) or ('parsed_ingredients' not in recipe):
+        continue
+    recipe_entry = Recipe(name=recipe['name'], directions='-'.join(recipe['method']))
+    session.add(recipe_entry)
 
+    for ingredient in recipe['parsed_ingredients']:
+        if 'name' not in ingredient:
+            continue
 
-	for row in open(recipes_filename):
-		row = row.lstrip()
-		row = row.rstrip()
-		row = row.split("|")
-		print 'ROW = {}'.format(row)
-		recipe_id = row[0]
-		recipe_name = row[1]
-		recipe_image = row[2]
-		recipe_url = row[3]
-		recipe_blog_url = row[4]
-		recipe_ingredients_list = row[5]
-		recipe_yield = row[6]
-		recipe_calories = row[7]
-		carbohydrates = row[8]
-		protein = row[9]
-		fiber = row[10]
-		fat = row[11]
-		potassium = row[12]
-		phosphorus = row[13]
-		sodium = row[14]
-		iron = row[15]
-		saturated_fat = row[16]
+        ingredient_query = session.query(Ingredient).filter_by(name=ingredient['name'])
+        if ingredient_query.count() > 0:
+            ingredient_entry = ingredient_query.first()
+        else:
+            ingredient_entry = Ingredient(name=ingredient['name'])
+            session.add(ingredient_entry)
 
-		recipe = Recipe(recipe_id=int(recipe_id),
-			recipe_name=recipe_name,
-			recipe_image=recipe_image,
-			recipe_url=recipe_url,
-			blog_url=recipe_blog_url,
-			ingredients_list=recipe_ingredients_list,
-			recipe_yield=recipe_yield,
-			calories=recipe_calories,
-			carbohydrates=recipe_carbohydrates,
-			protein=recipe_protein,
-			fiber=recipe_fiber,
-			fat=recipe_fat,
-			potassium=recipe_potassium,
-			phosphorus=recipe_phosphorus,
-			sodium=recipe_sodium,
-			iron=recipe_iron,
-			saturated_fat=recipe_saturated_fat)
+        recipe_ingredient_query = session.query(RecipeIngredient).filter_by(recipe_id=recipe_entry.id, ingredient_id=ingredient_entry.id)
+        if recipe_ingredient_query.count() > 0:
+            continue
 
-		session.add(recipe)
-
-	session.commit()
+        recipe_ingredient_entry = RecipeIngredient(recipe=recipe_entry, ingredient=ingredient_entry)
+        if 'qty' in ingredient:
+            recipe_ingredient_entry.quantity = ingredient['qty']
+        if 'unit' in ingredient:
+            recipe_ingredient_entry.unit = ingredient['unit']
+        recipe_entry.ingredients.append(recipe_ingredient_entry)
+        ingredient_entry.recipes.append(recipe_ingredient_entry)
+        session.add(recipe_ingredient_entry)
+        session.commit()
 
 
-
-# Add a grilled cheese
-
-grilled_cheese = Recipe(name='Grilled Cheese', directions='You know the drill.')
-session.add(grilled_cheese)
-
-cheese = Ingredient(name='Cheese')
-bread = Ingredient(name='Bread')
-session.add(cheese)
-session.add(bread)
-
-grilled_cheese_cheese = RecipeIngredient(recipe=grilled_cheese, ingredient=cheese, quantity=1)
-grilled_cheese_bread = RecipeIngredient(recipe=grilled_cheese, ingredient=bread, quantity=2)
-session.add(grilled_cheese_cheese)
-session.add(grilled_cheese_bread)
-
-session.commit()
-
-# Add a zucchini sandwich
-
-zucchini_sandwich = Recipe(name='Veggie Sandwich', directions='Put it together')
-session.add(zucchini_sandwich)
-
-zucchini = Ingredient(name='Zucchini')
-session.add(zucchini)
-
-zucchini_sandwich_zucchini = RecipeIngredient(recipe=zucchini_sandwich, ingredient=zucchini, quantity=1)
-zucchini_sandwich_bread = RecipeIngredient(recipe=zucchini_sandwich, ingredient=bread, quantity=2)
-session.add(zucchini_sandwich_zucchini)
-session.add(zucchini_sandwich_bread)
-
-session.commit()
-
-# Add a dairy allergy
-
-dairy_free = Allergy(name='Dairy')
-session.add(dairy_free)
-
-allergen = Allergen(allergy=dairy_free, ingredient=cheese)
-session.add(allergen)
-
-session.commit()
