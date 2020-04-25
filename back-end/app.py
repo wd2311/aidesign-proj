@@ -4,6 +4,7 @@ from flask import request
 from flask_cors import CORS
 
 import json
+import csv
 
 import numpy as np
 import random
@@ -24,8 +25,10 @@ def query(params):
         # Returns true if the recipe does not conflict with the user's allergy restrictions
         def allergy_checker(recipe):
             allergy_categories = {
-                'dairy': ['milk', 'cheese'],
-                'nuts': ['almond', 'cashew']
+                'dairy': ['dairy', 'milk', 'cheese', 'butter', 'yogurt', 'cream'],
+                'nuts': ['nut', 'almond', 'cashew', 'pecan'],
+                'shellfish': ['shellfish', 'clam', 'oyster', 'mussel', 'scallop'],
+                'gluten': ['gluten', 'wheat', 'rye', 'barley', 'bread', 'pasta', 'beer', 'bread']
             }
 
             # If finds allergy, return false
@@ -56,13 +59,25 @@ def query(params):
                 return 0
             return intersection / union
 
+        # What portion of the ingredients in the pantry are used in this recipe?
+        def pantry_containment(recipe, pantry):
+            unioned_ignredients = list(set(recipe).union(set(pantry)))
+            recipe_vector = []
+            pantry_vector = []
+            for ingredient in unioned_ignredients:
+                pantry_vector.append(1.0 if ingredient in pantry else 0.0)
+                recipe_vector.append(1.0 if ingredient in recipe else 0.0)
+            return containment(recipe_vector, pantry_vector)
+
         # Find similar recipes by ingredients, querying our similarity method
         candidate_ranks = []
         for other_recipe in data:
             if allergy_checker(other_recipe): # Only consider a recipe for candidacy if it doesn't violate the user's allergy restrictions
                 other_ingredients = other_recipe['ingredient_vector']
-                rank = containment(other_ingredients, cart_ingredients)
-                candidate_ranks.append((rank, other_recipe))
+                cart_containment_rank = containment(other_ingredients, cart_ingredients)
+                pantry_containment_rank = pantry_containment(other_recipe['ingredient_names'], pantry)
+                weighted_rank = cart_containment_rank + pantry_containment_rank
+                candidate_ranks.append((weighted_rank, other_recipe))
 
         # Candidates have been generated, by sorting by most similar
         generated_candidates = [x[1] for x in sorted(candidate_ranks, reverse=True, key=lambda x: x[0])][:num_generated_candidates]
@@ -158,6 +173,13 @@ with open('data/full_format_recipes_plus_normalized_ingredients.json') as f:
 for i, recipe in enumerate(data):
     recipe['id'] = i
 
+all_ingredient_names = []
+with open('data/combined_ingredients.csv') as f:
+    reader = csv.reader(f)
+    for i, row in enumerate(reader):
+        if i > 0:
+            all_ingredient_names.append(row[1])
+
 @app.route('/get_recs/')
 def get_recs():
     
@@ -173,3 +195,7 @@ def get_recs():
     recs = query(recommendation_params)
 
     return jsonify({'recommendations': recs})
+
+@app.route('/get_all_ingredient_names/')
+def get_all_ingredient_names():
+    return jsonify({'recommendations': all_ingredient_names})

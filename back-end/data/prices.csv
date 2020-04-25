@@ -1,4 +1,4 @@
-Name,Average retail price,Unit,Preparation yield factor,Size of a cup equivalent,Unit,Average price per cup equivalent
+Name,Average retail price,Unit_retail,Preparation yield factor,Size of a cup equivalent,Unit_cup,Average price per cup equivalent
 Apple,1.57,per pound,0.9,0.243,pounds,0.42
 Applesauce,1.08,per pound,1,0.54,pounds,0.58
 Apple Juice,0.73,per pint,1,8,fl oz,0.36
@@ -84,7 +84,7 @@ Collard greens(frozen),1.48,per pound,0.882,0.364,pounds,0.61
 Celery(trimmed bunches),1.11,per pound,0.73,0.265,pounds,0.4
 Celery sticks,2.2,per pound,1,0.265,pounds,0.58
 Green cabbage,0.58,per pound,0.779,0.331,pounds,0.25
-Red cabbage,1.06,per pound,0.779,0.331,0.45,
+Red cabbage,1.06,per pound,0.779,0.331,pounds,0.45
 Sauerkraut,1.26,per pound,0.65,0.309,pounds,0.6
 Cauliflower florets,3.27,per pound,0.97,0.276,pounds,0.93
 Cauliflower heads,1.23,per pound,0.893,0.276,pounds,0.38
@@ -153,7 +153,7 @@ Corn chips,3.46, per pound,,,,
 Crackers,2.86, per pound,,,,
 Cupcakes ,2.72, per pound,,,,
 Danish ,2.92, per pound,,,,
-Donuts ,2.80, per pound,,,,
+Donuts ,2.8, per pound,,,,
 Fruit rolls,5.72, per pound,,,,
 Graham crackers ,2.59, per pound,,,,
 Granola  bars,4.39, per pound,,,,
@@ -162,7 +162,7 @@ Muffins,4.04, per pound,,,,
 "Pizza, from frozen",2.84, per pound,,,,
 Popsicles and bars,0.34,per count,,,,
 Potato chips,3.86, per pound,,,,
-Pretzels,2.60, per pound,,,,
+Pretzels,2.6, per pound,,,,
 "Pudding, ready-to-eat",1.49, per pound,,,,
 Sandwich crackers,2.43, per pound,,,,
 Toaster pastries,2.03, per pound,,,,
