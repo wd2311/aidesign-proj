@@ -7,6 +7,8 @@ from sqlalchemy.sql import exists
 
 from declarative import Base, Recipe, Ingredient, Allergy, Allergen, RecipeIngredient
 
+import progressbar
+
 engine = create_engine('sqlite:///recipe.db')
 Base.metadata.bind = engine
  
@@ -18,7 +20,7 @@ db_path = '../data/new_recipe_db_parsed.csv'
 
 with open(db_path, 'r', encoding='latin-1') as f:
     reader = csv.reader(f, delimiter=',')
-    for i, row in enumerate(reader):
+    for i, row in progressbar.progressbar(enumerate(reader)):
         if i == 0:
             continue
         recipe_id = i
