@@ -30,6 +30,7 @@ class Ingredient(Base):
     recipes = relationship('RecipeIngredient', back_populates='ingredient')
     allergies = relationship('Allergen', back_populates='ingredient')
     name = Column(TEXT)
+    price = Column(TEXT)
 
 class Allergy(Base):
     __tablename__ = 'allergy'
@@ -52,6 +53,7 @@ class RecipeIngredient(Base):
     ingredient = relationship('Ingredient', back_populates='recipes')
     quantity = Column(TEXT, nullable=True)
     unit = Column(TEXT, nullable=True)
+    complete_input = Column(TEXT, nullable=True)
 
 engine = create_engine('sqlite:///recipe.db')
 Base.metadata.create_all(engine)
