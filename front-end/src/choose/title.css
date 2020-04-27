@@ -1,3 +1,18 @@
 .ant-modal-header {
   padding: 0;
 }
+
+.x {
+  display: none;
+}
+
+.minicell:hover .x {
+  display: block;
+}
+
+.hoverable {
+  color: black;
+}
+.cell:hover .hoverable {
+  color: #1890ff;
+}
