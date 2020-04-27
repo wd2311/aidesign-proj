@@ -9,10 +9,16 @@ DBSession = sessionmaker()
 DBSession.bind = engine
 session = DBSession()
 
-
+'''
 ingredient_entries = session.query(Ingredient).all()
-for ingredient_entry in ingredient_entries[:100]:
-    print(ingredient_entry.name)
+for ingredient_entry in ingredient_entries:
+    print(ingredient_entry.price)
+'''
+
+recipe_ingredient_entries = session.query(RecipeIngredient).all()
+for entry in recipe_ingredient_entries:
+    print(entry.complete_input)
+    print(entry.ingredient.name)
 
 # ingredient_entry = session.query(Ingredient).filter_by(name='olive oil').first()
 # for recipe_ingredient in ingredient_entry.recipes:

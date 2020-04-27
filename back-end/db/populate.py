@@ -8,6 +8,14 @@ from sqlalchemy.sql import exists
 from declarative import Base, Recipe, Ingredient, Allergy, Allergen, RecipeIngredient
 
 import progressbar
+import csv
+
+price_map = {}
+
+with open('./price_results.csv', newline='') as file:
+    reader = csv.reader(file)
+    for row in reader:
+        price_map[row[0]] = row[1]
 
 engine = create_engine('sqlite:///recipe.db')
 Base.metadata.bind = engine
@@ -64,6 +72,8 @@ with open(db_path, 'r', encoding='latin-1') as f:
                 ingredient_entry = ingredient_query.first()
             else:
                 ingredient_entry = Ingredient(name=ingredient['name'])
+                if ingredient['name'] in price_map:
+                    ingredient_entry.price = price_map[ingredient['name']]
                 session.add(ingredient_entry)
 
             recipe_ingredient_query = session.query(RecipeIngredient).filter_by(recipe_id=recipe_entry.recipe_id, 
