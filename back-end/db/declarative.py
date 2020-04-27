@@ -30,6 +30,7 @@ class Ingredient(Base):
     recipes = relationship('RecipeIngredient', back_populates='ingredient')
     allergies = relationship('Allergen', back_populates='ingredient')
     name = Column(TEXT)
+    price = Column(TEXT)
 
 class Allergy(Base):
     __tablename__ = 'allergy'
