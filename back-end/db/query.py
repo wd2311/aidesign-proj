@@ -10,6 +10,12 @@ DBSession.bind = engine
 session = DBSession()
 
 
+entries = session.query(Allergen).all()
+for entry in entries:
+    print(f'{entry.allergy.name} : {entry.ingredient.name}')
+
+'''
+
 print(1)
 entries = session.query(RecipeIngredient).filter_by(recipe_id=1).all()
 for entry in entries:
@@ -24,6 +30,8 @@ print(7173)
 entries = session.query(RecipeIngredient).filter_by(recipe_id=7173).all()
 for entry in entries:
     print(entry.ingredient_id)
+
+'''
 
 '''
 ingredient_entries = session.query(Ingredient).all()
