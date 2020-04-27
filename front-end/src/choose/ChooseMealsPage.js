@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Row, Col, Button, Typography, Calendar, Card } from "antd";
 import recipes from "./placeholderRecipes.js";
 
@@ -8,34 +8,40 @@ import staticRecipes from "./placeholderRecipes";
 import RecipeDetail from "../RecipeDetailV2.js";
 import Reccomendations from "./Reccomendations.js";
 const { Title, Text } = Typography;
-function sampleData() {
-  return [
-    {
-      meal: "Breakfast",
-      date: moment("2020-04-13"),
-      recipe: staticRecipes[1]
-    },
-    {
-      meal: "Lunch",
-      date: moment("2020-04-15"),
-      recipe: staticRecipes[2]
-    },
-    {
-      meal: "Dinner",
-      date: moment("2020-04-15"),
-      recipe: staticRecipes[3]
-    }
-  ];
-}
 
 function ChooseMealsPage(props) {
-  const { onClicked } = props;
-  const [mealPlan, setMealPlan] = useState(sampleData());
+  const {
+    onClicked,
+    mealPlan: initialMP = [],
+    allergys = [],
+    pantry = []
+  } = props;
+  const [mealPlan, setMealPlan] = useState(initialMP);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [selectedMeal, setSelectedMeal] = useState({
     date: moment().startOf("day"),
     meal: null
   });
+  const [selectedMealInCart, setSelectedMealInCart] = useState(false);
+  const [selectedMealMeal, setSelectedMealMeal] = useState(null);
+  const reccomendations = useMemo(() => {
+    return (
+      <Reccomendations
+        mealPlan={mealPlan}
+        allergys={allergys}
+        pantry={pantry}
+        meal={selectedMeal}
+        onSelectRecipe={recipe => {
+          console.log("Set selected recipe: ", recipe);
+          setSelectedMealInCart(false);
+          setSelectedRecipe(recipe);
+        }}
+        onAddToCart={recipe => {
+          setMealPlan(mealPlan.concat([{ ...selectedMeal, recipe: recipe }]));
+        }}
+      />
+    );
+  }, [mealPlan, allergys, pantry, selectedMeal]);
   return (
     <div
       style={{
@@ -50,13 +56,33 @@ function ChooseMealsPage(props) {
       <RecipeDetail
         recipe={selectedRecipe}
         onClose={() => setSelectedRecipe(null)}
+        onAddToCart={recipe => {
+          if (!selectedMealInCart) {
+            setMealPlan(mealPlan.concat([{ ...selectedMeal, recipe: recipe }]));
+          } else {
+            console.log(selectedMealMeal);
+            const idx = mealPlan.findIndex(
+              element =>
+                element.date.isSame(selectedMeal.date) &&
+                element.meal === selectedMealMeal &&
+                recipe.id === element.recipe.id
+            );
+            if (idx > -1) {
+              setMealPlan([
+                ...mealPlan.slice(0, idx),
+                ...mealPlan.slice(idx + 1)
+              ]);
+            }
+          }
+        }}
+        inCart={selectedMealInCart}
       />
       <div
         style={{
           display: "flex",
           padding: "20px",
-          height: "60%",
-          alignItems: "start"
+          alignItems: "start",
+          height: "100%"
         }}
       >
         <div
@@ -75,18 +101,37 @@ function ChooseMealsPage(props) {
               console.log("Set selected meal: ", meal);
               setSelectedMeal(meal);
             }}
-            onSelectRecipe={recipe => {
-              console.log("Set selected recipe: ", recipe);
+            onSelectRecipe={(recipe, meal) => {
+              console.log("Set selected recipe: ", recipe, meal);
+              setSelectedMealInCart(true);
+              setSelectedMealMeal(meal);
               setSelectedRecipe(recipe);
             }}
+            onRemove={(recipe, meal) => {
+              const idx = mealPlan.findIndex(
+                element =>
+                  element.date.isSame(selectedMeal.date) &&
+                  element.meal === meal &&
+                  recipe.id === element.recipe.id
+              );
+              if (idx > -1) {
+                setMealPlan([
+                  ...mealPlan.slice(0, idx),
+                  ...mealPlan.slice(idx + 1)
+                ]);
+              }
+            }}
           />
+          <Button
+            onClick={() => onClicked(mealPlan)}
+            style={{ marginTop: "20px" }}
+            size="large"
+            type="primary"
+          >
+            Complete
+          </Button>
         </div>
-        <Reccomendations
-          onSelectRecipe={recipe => {
-            console.log("Set selected recipe: ", recipe);
-            setSelectedRecipe(recipe);
-          }}
-        />
+        {reccomendations}
       </div>
     </div>
   );

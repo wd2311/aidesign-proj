@@ -1,12 +1,12 @@
 import React from "react";
 import ReactStars from "react-stars";
-import { Button, Typography, Card } from "antd";
+import { Button, Typography, Card, Divider } from "antd";
 import { CalendarOutlined } from "@ant-design/icons";
 const { Title, Text } = Typography;
 
 function RecipeCell(props) {
-  const { recipe, onSelect } = props;
-  const { id, name, desc, stars, src } = recipe;
+  const { recipe, onSelect, onAddToCart } = props;
+  const { id, title, description, rating, src } = recipe;
 
   const tmpImg = [
     "alfredo",
@@ -23,48 +23,59 @@ function RecipeCell(props) {
   const imsrc =
     src ?? tmpImg[Math.floor(Math.random() * tmpImg.length)] + ".jpg";
   return (
-    <Card
-      style={{
-        width: "150px",
-        padding: "0px",
-        marginRight: "20px",
-        marginBottom: "20px"
-      }}
-      bodyStyle={{
-        padding: "0px"
-      }}
-      onClick={() => onSelect(recipe)}
-    >
-      <div
+    <div style={{ marginRight: "20px", marginBottom: "20px" }}>
+      <Card
         style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "stretch",
-          justifyContent: "center",
+          width: "150px",
           padding: "0px",
-          width: "100%"
+
+          cursor: "pointer"
         }}
+        bodyStyle={{
+          padding: "0px"
+        }}
+        onClick={() => onSelect(recipe)}
       >
-        <img src={imsrc} style={{ objectFit: "cover", height: "75px" }} />
         <div
           style={{
-            padding: "5px",
-            width: "100%",
             display: "flex",
             flexDirection: "column",
-            alignItems: "stretch"
+            alignItems: "stretch",
+            justifyContent: "center",
+            padding: "0px",
+            width: "100%"
           }}
         >
-          <Text strong style={{ whiteSpace: "normal" }}>
-            {name}
-          </Text>
-          <ReactStars mb={1} value={stars} color1="primary" edit={false} />
-          <Button type="primary" icon={<CalendarOutlined />} size="small">
-            Add to Plan
-          </Button>
+          <img src={imsrc} style={{ objectFit: "cover", height: "75px" }} />
+          <div
+            style={{
+              padding: "5px",
+              width: "100%",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "stretch"
+            }}
+          >
+            <Text strong style={{ whiteSpace: "normal" }}>
+              {title}
+            </Text>
+            <ReactStars mb={1} value={rating} color1="primary" edit={false} />
+            <Divider style={{ margin: "5px 0" }} />
+            <Button
+              type="primary"
+              onClick={e => {
+                onAddToCart(recipe);
+                e.stopPropagation();
+              }}
+              icon={<CalendarOutlined />}
+              size="small"
+            >
+              Add to Plan
+            </Button>
+          </div>
         </div>
-      </div>
-    </Card>
+      </Card>
+    </div>
   );
 }
 
