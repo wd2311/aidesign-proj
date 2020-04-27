@@ -4,7 +4,13 @@ import MealSelection from "./MealSelection.js";
 import moment from "moment";
 
 function MealCalendar(props) {
-  const { mealPlan, selectedMeal, onSelectMeal, onSelectRecipe } = props;
+  const {
+    mealPlan,
+    selectedMeal,
+    onSelectMeal,
+    onSelectRecipe,
+    onRemove
+  } = props;
   console.log(selectedMeal);
   return (
     <div style={{ flex: "1 1 400px" }}>
@@ -29,17 +35,17 @@ function MealCalendar(props) {
           d.date.isSame(selectedMeal.date, "day")
         )}
         selectedMeal={selectedMeal.meal}
-        onSelectRecipe={recipe => onSelectRecipe(recipe)}
+        onSelectRecipe={onSelectRecipe}
         onSelectMeal={meal =>
           onSelectMeal({ date: selectedMeal.date, meal: meal })
         }
+        onRemove={onRemove}
       />
     </div>
   );
 }
 
 function dateFullCellRender(date, selected, data) {
-  console.log(date, data);
   const isSelected = selected.isSame(date, "day");
   const isToday = date.isSame(moment(), "day");
   return (

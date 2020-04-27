@@ -13,7 +13,8 @@ function WelcomePage(props) {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        height: "100%"
+        height: "100%",
+        backgroundColor: "WhiteSmoke"
       }}
     >
       <Title>Welcome!</Title>
@@ -27,13 +28,13 @@ function WelcomePage(props) {
       <div style={{ display: "flex", alignItems: "center", margin: "20px" }}>
         <InfoCard
           number={1}
-          title="Tell about you!"
-          content="Tell us: \n1. Some info."
+          title="Tell us Your Needs."
+          content="We will take information about the ingredients that you currently have, your allergys and intollerances, and the servings that you need. This information will help us personalize reccomended recipes for you."
         />
         <InfoCard
           number={2}
-          title="Pick customized recipes!"
-          content="Get custom recomendations for each meal that you are shopping for based on similarity to ingredients you alread have, ingredients in meals you have selected."
+          title="Meal Plan!"
+          content="Get custom recomendations for each meal that you are shopping for based on similarity to ingredients you alread have, ingredients in meals you have selected and your dietary needs. Our goal is to make your shopping as efficient as possible."
         />
         <InfoCard
           number={3}

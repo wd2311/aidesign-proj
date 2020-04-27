@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import WelcomePage from "./pages/WelcomePage.js";
 import TellUsPage from "./pages/TellUsPage.js";
 import ChooseMealsPage from "./choose/ChooseMealsPage.js";
+import SummaryPage from "./summary/SummaryPage.js";
 import { ThemeProvider } from "styled-components";
 import preset from "@rebass/preset";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
@@ -44,6 +45,9 @@ function FullScreenWrapper(props) {
 function Content() {
   let { page } = useParams();
   let history = useHistory();
+  const [mealPlan, setMealPlan] = useState([]);
+  const [allergys, setAllergys] = useState([]);
+  const [pantry, setPantry] = useState([]);
   useEffect(() => {
     console.log("Mount" + page === 1);
   });
@@ -83,7 +87,9 @@ function Content() {
       >
         <FullScreenWrapper>
           <TellUsPage
-            onClicked={() => {
+            onClicked={(a, p) => {
+              setAllergys(a);
+              setPantry(p);
               history.push(`/${ipage + 1}`);
             }}
           />
@@ -97,6 +103,25 @@ function Content() {
       >
         <FullScreenWrapper>
           <ChooseMealsPage
+            pantry={pantry}
+            allergys={allergys}
+            mealPlan={mealPlan}
+            onClicked={mealPlan => {
+              setMealPlan(mealPlan);
+              history.push(`/${ipage + 1}`);
+            }}
+          />
+        </FullScreenWrapper>
+      </CSSTransition>
+      <CSSTransition
+        in={ipage === 4}
+        classNames="page"
+        unmountOnExit
+        timeout={3000}
+      >
+        <FullScreenWrapper>
+          <SummaryPage
+            mealPlan={mealPlan}
             onClicked={() => {
               history.push(`/${ipage + 1}`);
             }}
