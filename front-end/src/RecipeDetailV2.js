@@ -7,7 +7,7 @@ import "antd/lib/button/style/index.css";
 const { Text, Paragraph } = Typography;
 
 function ModalContent(props) {
-  const { id, name, description, stars, src } = props.recipe;
+  const { id, title, desc, rating, src, ingredients } = props.recipe;
   const tmpImg = [
     "alfredo",
     "bolognese",
@@ -41,40 +41,68 @@ function ModalContent(props) {
           borderRadius: "2px 2px 0px 0px"
         }}
       />
-      <div style={{ padding: "10px" }}>
+      <div
+        style={{ padding: "10px", display: "flex", flexDirection: "column" }}
+      >
+        <div style={{ flex: "0 0 auto" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center"
+            }}
+          >
+            <div>
+              <Text strong style={{ whiteSpace: "normal" }}>
+                {title}
+              </Text>
+              <ReactStars mb={1} value={rating} color1="primary" edit={false} />
+            </div>
+          </div>
+          <Paragraph>{desc ?? "No description."}</Paragraph>
+          <Divider>Ingredients</Divider>
+        </div>
         <div
           style={{
             display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center"
+            flexDirection: "column",
+            flex: "1 1 auto",
+            maxHeight: "300px",
+            overflow: "auto"
           }}
         >
-          <div>
-            <Text strong style={{ whiteSpace: "normal" }}>
-              {name}
-            </Text>
-            <ReactStars mb={1} value={stars} color1="primary" edit={false} />
-          </div>
-          <Button type="primary" icon={<CalendarOutlined />} size="medium">
-            Add to Plan
-          </Button>
+          {ingredients.map(ingredient => (
+            <Paragraph style={{ flex: "0 0 auto" }} ellipsis>
+              {ingredient}
+            </Paragraph>
+          ))}
         </div>
-        <Paragraph>{description}</Paragraph>
-        <Divider>Ingredients</Divider>
       </div>
     </div>
   );
 }
 
 function RecipeDetail(props) {
-  const { recipe, onClose } = props;
+  const { recipe, onClose, onAddToCart, inCart } = props;
   return (
     <Modal
       title={null}
-      footer={null}
       visible={recipe != null}
       bodyStyle={{ padding: "0px" }}
       onCancel={() => onClose()}
+      footer={
+        <Button
+          type={inCart ? "warning" : "primary"}
+          onClick={() => {
+            onAddToCart(recipe);
+            onClose();
+          }}
+          icon={<CalendarOutlined />}
+          size="medium"
+        >
+          {inCart ? "Remove from Plan" : "Add to Plan"}
+        </Button>
+      }
     >
       {recipe && <ModalContent recipe={recipe} />}
     </Modal>

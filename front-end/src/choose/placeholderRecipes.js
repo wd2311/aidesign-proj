@@ -1,67 +1,67 @@
 let recipes;
 export default recipes = {
   1: {
-    name: "Spagetti and Meatballs",
-    description:
+    title: "Spagetti and Meatballs",
+    desc:
       "A delicious helping of spagetti nice and good very delicious. This spagetti will make you very pleased indeed.",
     src: "meatballs.jpg",
-    stars: 4,
+    rating: 4,
     id: 1
   },
   2: {
-    name: "Keto Chicken",
-    description:
+    title: "Keto Chicken",
+    desc:
       "A delicious helping of spagetti nice and good very delicious. This spagetti will make you very pleased indeed.",
     src: "keto.jpg",
-    stars: 4,
+    rating: 4,
     id: 2
   },
   3: {
-    name: "Pasta Bolognese",
-    description:
+    title: "Pasta Bolognese",
+    desc:
       "A delicious helping of spagetti nice and good very delicious. This spagetti will make you very pleased indeed.",
     src: "bolognese.jpg",
-    stars: 3,
+    rating: 3,
     id: 3
   },
   4: {
-    name: "Pad Thai",
-    description:
+    title: "Pad Thai",
+    desc:
       "A delicious helping of spagetti nice and good very delicious. This spagetti will make you very pleased indeed.",
     src: "thai.jpg",
-    stars: 4.5,
+    rating: 4.5,
     id: 4
   },
   5: {
-    name: "Fettuchini Alfredo",
-    description:
+    title: "Fettuchini Alfredo",
+    desc:
       "A delicious helping of spagetti nice and good very delicious. This spagetti will make you very pleased indeed.",
     src: "alfredo.jpg",
-    stars: 5,
+    rating: 5,
     id: 5
   },
   6: {
-    name: "Salad with Food",
-    description:
+    title: "Salad with Food",
+    desc:
       "A delicious helping of spagetti nice and good very delicious. This spagetti will make you very pleased indeed.",
     src: "salad.jpg",
-    stars: 3.5,
+    rating: 3.5,
     id: 6
   },
   7: {
-    name: "Chicken Tikka",
-    description:
+    title: "Chicken Tikka",
+    desc:
       "A delicious helping of spagetti nice and good very delicious. This spagetti will make you very pleased indeed.",
     src: "tikka.jpg",
-    stars: 4,
+    rating: 4,
     id: 7
   },
   8: {
-    name: "Chicken",
-    description:
+    title: "Chicken",
+    desc:
       "A delicious helping of spagetti nice and good very delicious. This spagetti will make you very pleased indeed.",
     src: "chicken.jpg",
-    stars: 4,
+    rating: 4,
     id: 8
   }
 };
