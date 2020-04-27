@@ -48,7 +48,7 @@ with open(db_path, 'r', encoding='latin-1') as f:
                              fibre = fibre,
                              protein = protein,
                              salt = salt,
-                             directions = '-'.join(method),
+                             directions = '\n'.join(method),
                              recipe_yield = recipe_yield,
                              recipe_img = img_url)
 
@@ -57,7 +57,7 @@ with open(db_path, 'r', encoding='latin-1') as f:
         parsed_ingr = ast.literal_eval(row[11])
 
         for ingredient in parsed_ingr:
-            if 'name' not in ingredient:
+            if ('name' not in ingredient) or ('input' not in ingredient):
                 continue
             ingredient_query = session.query(Ingredient).filter_by(name=ingredient['name'])
             if ingredient_query.count() > 0:
@@ -76,6 +76,8 @@ with open(db_path, 'r', encoding='latin-1') as f:
                 recipe_ingredient_entry.quantity = ingredient['qty']
             if 'unit' in ingredient:
                 recipe_ingredient_entry.unit = ingredient['unit']
+            if 'input' in ingredient:
+                recipe_ingredient_entry.complete_input = ingredient['input']
             recipe_entry.ingredients.append(recipe_ingredient_entry)
             ingredient_entry.recipes.append(recipe_ingredient_entry)
             session.add(recipe_ingredient_entry)

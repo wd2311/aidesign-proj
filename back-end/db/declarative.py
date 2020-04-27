@@ -52,6 +52,7 @@ class RecipeIngredient(Base):
     ingredient = relationship('Ingredient', back_populates='recipes')
     quantity = Column(TEXT, nullable=True)
     unit = Column(TEXT, nullable=True)
+    complete_input = Column(TEXT, nullable=True)
 
 engine = create_engine('sqlite:///recipe.db')
 Base.metadata.create_all(engine)
