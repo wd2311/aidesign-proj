@@ -15,13 +15,13 @@ entries = session.query(RecipeIngredient).filter_by(recipe_id=1).all()
 for entry in entries:
     print(entry.ingredient_id)
 
-print(3775)
-entries = session.query(RecipeIngredient).filter_by(recipe_id=3775).all()
+print(5867)
+entries = session.query(RecipeIngredient).filter_by(recipe_id=5867).all()
 for entry in entries:
     print(entry.ingredient_id)
 
-print(10277)
-entries = session.query(RecipeIngredient).filter_by(recipe_id=9756).all()
+print(7173)
+entries = session.query(RecipeIngredient).filter_by(recipe_id=7173).all()
 for entry in entries:
     print(entry.ingredient_id)
 

@@ -13,6 +13,7 @@ session = DBSession()
 
 recipe_groups = []
 
+num_recipes = session.query(Recipe).count()
 ingredient_entries = session.query(Ingredient).all()
 for ingredient_entry in progressbar.progressbar(ingredient_entries):
     recipe_group = []
@@ -27,10 +28,10 @@ print("Recipe groups stored")
 num_features = 200    # Word vector dimensionality                      
 min_word_count = 1
 num_workers = 4       # Number of CPUs
-context = 50          # Context window size;
+context = num_recipes # Context window size;
                       # let's use avg recipte size                                                                            
 downsampling = 1e-3   # threshold for configuring which 
-                    # higher-frequency words are randomly downsampled
+                      # higher-frequency words are randomly downsampled
 
 # Initialize and train the model 
 model = word2vec.Word2Vec(recipe_groups, workers=num_workers, \
