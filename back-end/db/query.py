@@ -32,10 +32,13 @@ for ingredient_entry in ingredient_entries:
 '''
 
 '''
+=======
+>>>>>>> 2aa2fe68658d5492225b9fffad9ad845085c8263
 recipe_ingredient_entries = session.query(RecipeIngredient).all()
 for entry in recipe_ingredient_entries:
     print(entry.complete_input)
     print(entry.ingredient.name)
+<<<<<<< HEAD
 '''
 
 # ingredient_entry = session.query(Ingredient).filter_by(name='olive oil').first()
