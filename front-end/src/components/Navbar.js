@@ -2,7 +2,7 @@ import React from "react";
 
 import { Typography } from "antd";
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
 function Navbar(props) {
   return (

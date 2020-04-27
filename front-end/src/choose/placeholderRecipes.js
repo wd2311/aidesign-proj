@@ -1,5 +1,4 @@
-let recipes;
-export default recipes = {
+export default {
   1: {
     title: "Spagetti and Meatballs",
     desc:

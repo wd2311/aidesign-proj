@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Row, Col, Divider, Button, Typography } from "antd";
+
+import { InfoCircleOutlined } from "@ant-design/icons";
+
+import { Popover, Button, Typography } from "antd";
 
 import { Form, Radio, Card, Checkbox, Input, Select, InputNumber } from "antd";
 
@@ -436,7 +439,6 @@ function TellUsPage(props) {
       .then(res => res.json())
       .then(response => {
         const fetchedPantry = response["recommendations"];
-        console.log(fetchedPantry);
         setPantryOptions(fetchedPantry);
       });
   }, []);
@@ -484,9 +486,32 @@ function TellUsPage(props) {
             How many people do you need to feed?
           </Text>
           <InputNumber min={1} size="large" />
-          <Text strong style={{ margin: "10px", marginTop: "30px" }}>
-            Do you have any dietary needs?
-          </Text>
+          <div style={{ margin: "10px", marginTop: "30px" }}>
+            <Text style={{ marginRight: "5px" }} strong>
+              Do you have any dietary needs?
+            </Text>
+            <Popover
+              title="Do we support other dietary needs?"
+              placement="bottom"
+              arrowPointAtCenter
+              overlayStyle={{ maxWidth: "20%" }}
+              content={
+                <p>
+                  We are working to extend our support for various dietary
+                  restrictions. Please email us at{" "}
+                  <a
+                    href="mailto:wt65074@gmail.com?Subject=Dietary%20Support"
+                    target="_top"
+                  >
+                    group3@foodapp.io
+                  </a>{" "}
+                  to request support for additional needs.
+                </p>
+              }
+            >
+              <InfoCircleOutlined />
+            </Popover>
+          </div>
           <Checkbox.Group
             onChange={value => setAllergys(value)}
             options={["Dairy", "Nuts", "Shellfish", "Gluten"]}

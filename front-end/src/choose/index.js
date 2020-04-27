@@ -1,12 +1,10 @@
 import React, { useState, useMemo } from "react";
 import { Row, Col, Button, Typography, Calendar, Card } from "antd";
 import recipes from "./placeholderRecipes.js";
-
-import MealCalendar from "./MealCalendar.js";
+import MealCalendar from "./components/MealCalendar.js";
 import moment from "moment";
-import staticRecipes from "./placeholderRecipes";
-import RecipeDetail from "../RecipeDetailV2.js";
-import Reccomendations from "./Reccomendations.js";
+import RecipeDetail from "../components/RecipeDetail.js";
+import Reccomendations from "./components/Reccomendations.js";
 const { Title, Text } = Typography;
 
 function ChooseMealsPage(props) {

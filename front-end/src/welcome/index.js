@@ -1,6 +1,6 @@
 import React from "react";
-import { Row, Col, Button, Typography, Card } from "antd";
-import InfoCard from "../components/InfoCard.js";
+import { Button, Typography } from "antd";
+import InfoCard from "./InfoCard.js";
 
 const { Title, Text } = Typography;
 

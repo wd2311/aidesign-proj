@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import RecipeCell from "./RecipeCellV2.js";
-import { Spin } from "antd";
-import { Typography } from "antd";
+import RecipeCell from "./RecipeCell.js";
+import { Spin, Popover, Typography } from "antd";
+import { InfoCircleOutlined } from "@ant-design/icons";
 const { Title, Text } = Typography;
 function generateQuery(mealPlan, allergys, pantry) {
   const mealPlanString =
@@ -66,9 +66,39 @@ function Reccomendations(props) {
         flexDirection: "column"
       }}
     >
-      <Title style={{ flex: "0 0 auto" }} level={4}>
-        Reccomended Recipes
-      </Title>
+      <div
+        style={{
+          flex: "0 0 auto",
+          display: "flex",
+          alignItems: "center",
+          marginBottom: "10px"
+        }}
+      >
+        <Title style={{ margin: "0 5px 0 0" }} level={4}>
+          Recommended Recipes
+        </Title>
+        <Popover
+          title="Why are these recommended?"
+          placement="bottom"
+          arrowPointAtCenter
+          overlayStyle={{ maxWidth: "20%" }}
+          content={
+            <p>
+              1. Try to find recipes with similar ingredients so you can shop
+              less and save money.
+              <br />
+              2. Items you already have, to reduce waste and save money.
+              <br />
+              3. Dietary needs.
+              <br />
+              4. Balancing the nutritional content of your cart.
+              <br />
+            </p>
+          }
+        >
+          <InfoCircleOutlined />
+        </Popover>
+      </div>
       <div
         style={{
           display: "flex",

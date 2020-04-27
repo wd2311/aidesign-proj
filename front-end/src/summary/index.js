@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Row, Col, Divider, Button, Typography } from "antd";
 
 import { Form, Radio, Card, Checkbox, Input, Select, Avatar } from "antd";
-import RecipeDetail from "../RecipeDetailV2";
+import RecipeDetail from "../components/RecipeDetail.js";
 import moment from "moment";
 
 const { Title, Text, Paragraph } = Typography;

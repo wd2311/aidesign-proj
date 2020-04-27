@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
-import WelcomePage from "./pages/WelcomePage.js";
-import TellUsPage from "./pages/TellUsPage.js";
-import ChooseMealsPage from "./choose/ChooseMealsPage.js";
+import WelcomePage from "./welcome";
+import TellUsPage from "./tell-us";
+import ChooseMealsPage from "./choose";
 import { ThemeProvider } from "styled-components";
 import preset from "@rebass/preset";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";

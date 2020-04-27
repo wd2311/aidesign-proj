@@ -1,91 +1,147 @@
 import React, { useState, useRef, useEffect } from "react";
-import Cart from "./components/Cart.js";
-import RecipeList from "./components/RecipeList.js";
-import Reccomendations from "./components/Reccomendations.js";
-import Navbar from "./components/Navbar.js";
-import RecipeDetail from "./components/RecipeDetail.js";
+import WelcomePage from "./welcome";
+import TellUsPage from "./tell-us";
+import ChooseMealsPage from "./choose";
+import SummaryPage from "./summary";
 import { ThemeProvider } from "styled-components";
-import {
-  Box,
-  Flex,
-  Heading,
-  Text,
-  Button,
-  Link,
-  Image,
-  Card
-} from "rebass/styled-components";
-
 import preset from "@rebass/preset";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import { Layout, Row, Button } from "antd";
+import { CSSTransition } from "react-transition-group";
+import Navbar from "./components/Navbar.js";
+import ReactDOM from "react-dom";
+import "./pages/Page.css";
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+  useParams,
+  useHistory
+} from "react-router-dom";
+
+import "antd/dist/antd.css";
 const theme = {
   ...preset
 };
 
-function App() {
-  const [cart, setCart] = useState({});
-  const [focusRecipe, setFocusRecipe] = useState(null);
-  const body = useRef(null);
-
-  useEffect(() => {
-    if (focusRecipe) {
-      disableBodyScroll(body);
-    } else {
-      enableBodyScroll(body);
-    }
-  }, [focusRecipe]);
-
-  const addToCart = recipe => {
-    let newCart = Object.assign({}, cart);
-    newCart[recipe.id] = recipe;
-    console.log(newCart);
-    setCart(newCart);
-  };
-
-  const deleteFromCart = recipe => {
-    let newCart = Object.assign({}, cart);
-    delete newCart[recipe.id];
-    setCart(newCart);
-  };
-
+function FullScreenWrapper(props) {
   return (
-    <ThemeProvider theme={theme}>
-      {focusRecipe && (
-        <RecipeDetail
-          recipe={focusRecipe}
-          onCancel={() => setFocusRecipe(null)}
-          inCart={focusRecipe.id in cart}
-          onSelection={recipe => {
-            focusRecipe.id in cart ? deleteFromCart(recipe) : addToCart(recipe);
-            setFocusRecipe(null);
-          }}
-        />
-      )}
+    <div
+      style={{
+        display: "inline-block",
+        height: "calc(100vh - 52px)",
+        top: "52px",
+        width: "100%",
+        position: "absolute"
+      }}
+    >
+      {props.children}
+    </div>
+  );
+}
+
+function Content() {
+  let { page } = useParams();
+  let history = useHistory();
+  const [mealPlan, setMealPlan] = useState([]);
+  const [allergys, setAllergys] = useState([]);
+  const [pantry, setPantry] = useState([]);
+  useEffect(() => {
+    console.log("Mount" + page === 1);
+  });
+  console.log(page);
+  let ipage = parseInt(page);
+  return (
+    <div
+      style={{
+        height: "100vh",
+        width: "100%",
+        whiteSpace: "nowrap",
+        overflow: "auto",
+        display: "flex",
+        flexDirection: "column"
+      }}
+    >
       <Navbar />
-      <Flex mx={0} backgroundColor="WhiteSmoke" ref={body} alignItems="stretch">
-        <Reccomendations
-          cart={
-            Object.keys(cart).length
-              ? Object.keys(cart).join("-")
-              : [...Array(10).keys()].join("-")
-          }
-          onSelection={addToCart}
-          onRecipeSelection={recipe => {
-            console.log("Recipe selected");
-            setFocusRecipe(recipe);
-          }}
-        />
-        <Cart
-          recipes={cart}
-          onRecipeSelection={recipe => {
-            console.log("Recipe selected");
-            setFocusRecipe(recipe);
-          }}
-          onSelection={deleteFromCart}
-        />
-      </Flex>
-    </ThemeProvider>
+      <CSSTransition
+        in={ipage === 1}
+        classNames="page"
+        unmountOnExit
+        timeout={3000}
+      >
+        <FullScreenWrapper>
+          <WelcomePage
+            onClicked={() => {
+              history.push(`/${ipage + 1}`);
+            }}
+          />
+        </FullScreenWrapper>
+      </CSSTransition>
+      <CSSTransition
+        in={ipage === 2}
+        classNames="page"
+        unmountOnExit
+        timeout={3000}
+      >
+        <FullScreenWrapper>
+          <TellUsPage
+            onClicked={(a, p) => {
+              setAllergys(a);
+              setPantry(p);
+              history.push(`/${ipage + 1}`);
+            }}
+          />
+        </FullScreenWrapper>
+      </CSSTransition>
+      <CSSTransition
+        in={ipage === 3}
+        classNames="page"
+        unmountOnExit
+        timeout={3000}
+      >
+        <FullScreenWrapper>
+          <ChooseMealsPage
+            pantry={pantry}
+            allergys={allergys}
+            mealPlan={mealPlan}
+            onClicked={mealPlan => {
+              setMealPlan(mealPlan);
+              history.push(`/${ipage + 1}`);
+            }}
+          />
+        </FullScreenWrapper>
+      </CSSTransition>
+      <CSSTransition
+        in={ipage === 4}
+        classNames="page"
+        unmountOnExit
+        timeout={3000}
+      >
+        <FullScreenWrapper>
+          <SummaryPage
+            mealPlan={mealPlan}
+            onClicked={() => {
+              history.push(`/${ipage + 1}`);
+            }}
+          />
+        </FullScreenWrapper>
+      </CSSTransition>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/:page">
+          <Content />
+        </Route>
+        <Redirect from="/" to="/1" />
+      </Switch>
+    </Router>
   );
 }
 

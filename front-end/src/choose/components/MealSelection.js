@@ -1,7 +1,7 @@
 import React from "react";
-import { Button, Typography, Divider, Card, Avatar } from "antd";
+import { Typography, Divider, Card, Avatar } from "antd";
 import { CaretRightOutlined, CloseCircleOutlined } from "@ant-design/icons";
-import "./title.css";
+import "../css/title.css";
 const { Text, Paragraph } = Typography;
 
 function MealMiniCell(props) {
@@ -118,6 +118,7 @@ function MealSelectionRow(props) {
     </div>
   );
 }
+
 function MealSelection(props) {
   const meals = ["Breakfast", "Lunch", "Dinner"];
   const {

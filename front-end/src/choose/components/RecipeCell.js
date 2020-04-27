@@ -2,7 +2,7 @@ import React from "react";
 import ReactStars from "react-stars";
 import { Button, Typography, Card, Divider } from "antd";
 import { CalendarOutlined } from "@ant-design/icons";
-const { Title, Text } = Typography;
+const { Text } = Typography;
 
 function RecipeCell(props) {
   const { recipe, onSelect, onAddToCart } = props;
@@ -28,7 +28,6 @@ function RecipeCell(props) {
         style={{
           width: "150px",
           padding: "0px",
-
           cursor: "pointer"
         }}
         bodyStyle={{
