@@ -6,7 +6,14 @@ import "antd/lib/button/style/index.css";
 const { Text, Paragraph } = Typography;
 
 function ModalContent(props) {
-  const { id, title, desc, rating, src, ingredients } = props.recipe;
+  const {
+    id,
+    recipe_name: title,
+    desc,
+    rating,
+    recipe_img,
+    ingredients
+  } = props.recipe;
   const tmpImg = [
     "alfredo",
     "bolognese",
@@ -21,7 +28,9 @@ function ModalContent(props) {
   ];
 
   const imsrc =
-    src ?? tmpImg[Math.floor(Math.random() * tmpImg.length)] + ".jpg";
+    recipe_img ?? tmpImg[Math.floor(Math.random() * tmpImg.length)] + ".jpg";
+
+  const recipe_rating = rating ?? Math.floor(Math.random() * 6);
 
   return (
     <div
@@ -55,7 +64,12 @@ function ModalContent(props) {
               <Text strong style={{ whiteSpace: "normal" }}>
                 {title}
               </Text>
-              <ReactStars mb={1} value={rating} color1="primary" edit={false} />
+              <ReactStars
+                mb={1}
+                value={recipe_rating}
+                color1="primary"
+                edit={false}
+              />
             </div>
           </div>
           <Paragraph>{desc ?? "No description."}</Paragraph>

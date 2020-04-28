@@ -7,7 +7,7 @@ const { Text, Paragraph } = Typography;
 function MealMiniCell(props) {
   console.log(props);
   const { recipe, onClick, onRemove } = props;
-  const { title, id, src } = recipe;
+  const { recipe_name: title, id, recipe_img } = recipe;
   const tmpImg = [
     "alfredo",
     "bolognese",
@@ -21,7 +21,7 @@ function MealMiniCell(props) {
     "tikka"
   ];
   const imSrc =
-    src ?? tmpImg[Math.floor(Math.random() * tmpImg.length)] + ".jpg";
+    recipe_img ?? tmpImg[Math.floor(Math.random() * tmpImg.length)] + ".jpg";
 
   return (
     <div

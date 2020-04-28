@@ -44,9 +44,10 @@ function Reccomendations(props) {
     fetch(generateQuery(mealPlan, allergys, pantry))
       .then(res => res.json())
       .then(response => {
+        console.log(response["recommendations"]);
         const fetchedRecipes = response["recommendations"].reduce(
           (obj, recipe) => {
-            obj[recipe.id] = recipe;
+            obj[recipe.recipe_id] = recipe;
             return obj;
           },
           {}

@@ -6,7 +6,7 @@ const { Text } = Typography;
 
 function RecipeCell(props) {
   const { recipe, onSelect, onAddToCart } = props;
-  const { id, title, description, rating, src } = recipe;
+  const { id, recipe_name: title, description, rating, recipe_img } = recipe;
 
   const tmpImg = [
     "alfredo",
@@ -21,7 +21,9 @@ function RecipeCell(props) {
     "tikka"
   ];
   const imsrc =
-    src ?? tmpImg[Math.floor(Math.random() * tmpImg.length)] + ".jpg";
+    recipe_img ?? tmpImg[Math.floor(Math.random() * tmpImg.length)] + ".jpg";
+
+  const recipe_rating = rating ?? Math.floor(Math.random() * 6);
   return (
     <div style={{ marginRight: "20px", marginBottom: "20px" }}>
       <Card
@@ -58,7 +60,12 @@ function RecipeCell(props) {
             <Text strong style={{ whiteSpace: "normal" }}>
               {title}
             </Text>
-            <ReactStars mb={1} value={rating} color1="primary" edit={false} />
+            <ReactStars
+              mb={1}
+              value={recipe_rating}
+              color1="primary"
+              edit={false}
+            />
             <Divider style={{ margin: "5px 0" }} />
             <Button
               type="primary"
