@@ -21,7 +21,22 @@ def pullIngredientIds(session, recipes):
     ingredient_ids = [id[0] for id in ingredient_ids]
     return tuple(ingredient_ids)
 
-def candidateGeneration(recipes, n=50):
+def filterAllergies(session, candidates, allergies):
+
+    int_allergies = [int(allergy) for allergy in allergies]
+
+    def filterSingle(x):
+        recipe_id = x[0]
+        ingredient_query = session.query(RecipeIngredient.ingredient).filter_by(recipe_id=recipe_id)
+        for ingredient in ingredient_query.all():
+            for allergen in ingredient.allergies:
+                if allergen.allergy_id in int_allergies:
+                    return False
+        return True
+
+    return filter(filterSingle, candidates)
+
+def candidateGeneration(recipes, allergies, n=50):
     engine = create_engine('sqlite:///db/recipe.db')
     Base.metadata.bind = engine
     DBSession = sessionmaker()
@@ -33,7 +48,10 @@ def candidateGeneration(recipes, n=50):
 
     candidates = []
     for recipe in recipes:
-        candidates = candidates + nearestRecipes(recipe, n+1, model, indexer)[1:]
+        candidates = candidates + nearestRecipes(recipe, 2*n, model, indexer)[1:]
+
+    filterAllergies(session, candidates, allergies)
+
     ingredient_ids = pullIngredientIds(session, recipes)
     candidates = [ (i, containment(session, ingredient_ids, i)) for i, _ in candidates ]
     candidates.sort(key=lambda x: -x[1])
@@ -41,5 +59,5 @@ def candidateGeneration(recipes, n=50):
     return [i for i, _ in candidates[:n]]
 
 
-candidates = candidateGeneration(['100', '200', '300'], n=50)
+candidates = candidateGeneration(['100', '200', '300'], ['1', '2'], n=50)
 print(candidates)
