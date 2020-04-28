@@ -41,5 +41,4 @@ def candidateGeneration(recipes, allergies, n=50):
     ingredient_ids = pullIngredientIds(session, recipes)
     candidates = [ (i, containment(session, ingredient_ids, i)) for i in candidates ]
     candidates.sort(key=lambda x: -x[1])
-    print(candidates)
     return [i for i, _ in candidates[:n]]
