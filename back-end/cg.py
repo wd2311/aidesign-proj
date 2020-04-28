@@ -12,7 +12,7 @@ def containment(session, ingredient_ids, recipe_id):
     return num_contained_ingredients / num_recipe_ingredients
 
 def nearestRecipes(recipe_id, n, model, indexer):
-    return model.most_similar(recipe_id, topn=n, indexer=indexer)
+    return model.most_similar(str(recipe_id), topn=n, indexer=indexer)
 
 def pullIngredientIds(session, recipes):
     ingredient_ids = []

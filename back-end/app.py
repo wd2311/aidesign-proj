@@ -13,7 +13,7 @@ import csv
 import numpy as np
 import random
 
-from alternate_cg import candidateGeneration
+from cg import candidateGeneration
 from ranker import ranking
 
 def query(recipes, allergies, num_candidates=100, num_results=20):
