@@ -64,7 +64,7 @@ def get_recs():
             if key != '_sa_instance_state':
                 clean_row[key] = row.__dict__[key]
 
-        ingredient_query = session.query(RecipeIngredient.complete_input, Ingredient.price).filter(RecipeIngredient.recipe_id==clean_row['recipe_id']).filter(RecipeIngredient.ingredient_id == Ingredient.ingr_id)
+        ingredient_query = session.query(RecipeIngredient.complete_input, Ingredient.name, RecipeIngredient.quantity, RecipeIngredient.unit, Ingredient.price).filter(RecipeIngredient.recipe_id==clean_row['recipe_id']).filter(RecipeIngredient.ingredient_id == Ingredient.ingr_id)
         clean_row['ingredients'] = ingredient_query.all()
 
         clean_recs.append(clean_row)
