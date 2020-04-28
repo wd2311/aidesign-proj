@@ -13,12 +13,16 @@ import csv
 import numpy as np
 import random
 
-from cg import candidateGeneration
+from alternate_cg import candidateGeneration
 from ranker import ranking
 
 def query(recipes, allergies, num_candidates=100, num_results=20):
     candidates = candidateGeneration(recipes, allergies, num_candidates)
     final_results = ranking(candidates, 10, num_results)
+
+    final_results = [int(result) for result in final_results]
+    recipe_query = session.query(Recipe).filter(Recipe.recipe_id.in_(tuple(final_results)))
+    print([row.__dict__ for row in recipe_query.all()])
 
     return final_results
 
@@ -51,7 +55,9 @@ def get_recs():
 
     recipes = [int(x) for x  in params['cart']] + pantry
 
-    recs = query(recipes, allergies)
+    rec_ids = query(recipes, allergies)
+    recipe_query = session.query(Recipe).filter(Recipe.recipe_id.in_(tuple(rec_ids)))
+    recs = [row.__dict__ for row in recipe_query.all()]
 
     return jsonify({'recommendations': recs})
 
