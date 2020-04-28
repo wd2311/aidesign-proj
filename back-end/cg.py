@@ -57,7 +57,3 @@ def candidateGeneration(recipes, allergies, n=50):
     candidates.sort(key=lambda x: -x[1])
     print(candidates)
     return [i for i, _ in candidates[:n]]
-
-
-candidates = candidateGeneration(['100', '200', '300'], ['1', '2'], n=50)
-print(candidates)

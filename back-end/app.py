@@ -9,79 +9,13 @@ import csv
 import numpy as np
 import random
 
+from alternate_cg import candidateGeneration
+
 def query(params):
 
     cart = [data[int(idx)] for idx in params['cart']]
     allergys = [a for a in params['allergys']]
     pantry = [p for p in params['pantry']]
-
-    # Candidate Generator
-    def candidate_generator(num_generated_candidates):
-        # Vectorize cart: Dictionaries { ingredient : count }
-        cart_ingredients = np.zeros(len(data[0]['ingredient_vector']))
-        for recipe in cart:
-            cart_ingredients = np.maximum(cart_ingredients, recipe['ingredient_vector'])
-
-        # Returns true if the recipe does not conflict with the user's allergy restrictions
-        def allergy_checker(recipe):
-            allergy_categories = {
-                'dairy': ['dairy', 'milk', 'cheese', 'butter', 'yogurt', 'cream'],
-                'nuts': ['nut', 'almond', 'cashew', 'pecan'],
-                'shellfish': ['shellfish', 'clam', 'oyster', 'mussel', 'scallop'],
-                'gluten': ['gluten', 'wheat', 'rye', 'barley', 'bread', 'pasta', 'beer', 'bread']
-            }
-
-            # If finds allergy, return false
-            for allergy in allergys: # for evert allergy,
-                if allergy in allergy_categories: # if it's in one of our saved allergy categories
-                    allergy_words = allergy_categories[allergy] # get all the words for that allergy category
-                    for ingredient in recipe['ingredients']: # for every ingredient
-                        for allergy_word in allergy_words: # check if any allergy words are in the ingredient
-                            if allergy_word in ingredient: # if they are, allergy check fails.
-                                return False
-            
-            # If no allergy issue, return true (passed allergy check)
-            return True   
-
-        # Containment of vector a in b
-        def containment(a, b):
-            within = np.dot(a, b)
-            total = np.sum(a)
-            if total == 0:
-                return 0
-            return within / total
-
-        # IOU of vectors a and b
-        def iou(a, b):
-            intersection = np.sum(np.dot(a, b))
-            union = np.sum(a) + np.sum(b) - intersection
-            if union == 0:
-                return 0
-            return intersection / union
-
-        # What portion of the ingredients in the pantry are used in this recipe?
-        def pantry_containment(recipe, pantry):
-            unioned_ignredients = list(set(recipe).union(set(pantry)))
-            recipe_vector = []
-            pantry_vector = []
-            for ingredient in unioned_ignredients:
-                pantry_vector.append(1.0 if ingredient in pantry else 0.0)
-                recipe_vector.append(1.0 if ingredient in recipe else 0.0)
-            return containment(recipe_vector, pantry_vector)
-
-        # Find similar recipes by ingredients, querying our similarity method
-        candidate_ranks = []
-        for other_recipe in data:
-            if allergy_checker(other_recipe): # Only consider a recipe for candidacy if it doesn't violate the user's allergy restrictions
-                other_ingredients = other_recipe['ingredient_vector']
-                cart_containment_rank = containment(other_ingredients, cart_ingredients)
-                pantry_containment_rank = pantry_containment(other_recipe['ingredient_names'], pantry)
-                weighted_rank = cart_containment_rank + pantry_containment_rank
-                candidate_ranks.append((weighted_rank, other_recipe))
-
-        # Candidates have been generated, by sorting by most similar
-        generated_candidates = [x[1] for x in sorted(candidate_ranks, reverse=True, key=lambda x: x[0])][:num_generated_candidates]
-        return generated_candidates
 
     # Ranker
     def ranker(generated_candidates, num_ranked_results):
@@ -159,7 +93,7 @@ def query(params):
     num_generated_candidates = 100
     num_ranked_results = 20
 
-    generated_candidates = candidate_generator(num_generated_candidates)
+    generated_candidates = candidateGeneration()
     final_results = ranker(generated_candidates, num_ranked_results)
 
     return final_results
