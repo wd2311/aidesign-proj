@@ -93,7 +93,7 @@ def query(params):
     num_generated_candidates = 100
     num_ranked_results = 20
 
-    generated_candidates = candidateGeneration()
+    generated_candidates = candidateGeneration(recipes, allergies, num_generated_candidates)
     final_results = ranker(generated_candidates, num_ranked_results)
 
     return final_results
