@@ -2,33 +2,40 @@ import pandas as pd
 import ast
 from gensim.models import word2vec
 
-df = pd.read_csv('data/parsed_ingredients.csv', encoding='latin-1')
-ingredients = df['parsed_ingredients'].to_numpy()
+from ..db.declarative import Base, Recipe, Ingredient, RecipeIngredient, Allergy, Allergen
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
-print("Loaded data")
 
-ingredient_groups = []
+engine = create_engine('sqlite:///../db/recipe.db')
+Base.metadata.bind = engine
+DBSession = sessionmaker()
+DBSession.bind = engine
+session = DBSession()
 
-for ingr in ingredients:
-    ingr = ast.literal_eval(ingr)
-    ingr_per_recipe=[]
-    for ec in ingr:
-        if 'name' in ec and ec['name'] not in ingredient_groups:
-            ingr_per_recipe.append(ec['name'])
-    ingredient_groups.append(ingr_per_recipe)
+recipe_groups = []
+
+largest_group = 0
+
+for ingredient_id in session.query(Ingredient.ingr_id).all():
+    group = []
+    for recipe_id in session.query(RecipeIngredient.recipe_id).filter_by(ingredient_id=ingredient_id[0]).all():
+        group.append(str(recipe_id[0]))
+    recipe_groups.append(group)
+    largest_group = max(largest_group, len(group))
 
 print("Ingredient vectors stored")
 # Set values for NN parameters
-num_features = 20    # Word vector dimensionality                      
+num_features = 100    # Word vector dimensionality                      
 min_word_count = 1
 num_workers = 4       # Number of CPUs
-context = 5          # Context window size;
+context = largest_group # Context window size;
                       # let's use avg recipte size                                                                            
 downsampling = 1e-3   # threshold for configuring which 
-                    # higher-frequency words are randomly downsampled
+                      # higher-frequency words are randomly downsampled
 
 # Initialize and train the model 
-model = word2vec.Word2Vec(ingredient_groups, workers=num_workers, \
+model = word2vec.Word2Vec(recipe_groups, workers=num_workers, \
             size=num_features, min_count = min_word_count, \
             window = context, sample = downsampling)
 
