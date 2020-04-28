@@ -23,6 +23,12 @@ session = DBSession()
 # top_50 = [id[0] for id in top_50]
 
 def ranking(ids_top_50, num_of_samples, recipes_returned):
+    engine = create_engine('sqlite:///db/recipe.db')
+    Base.metadata.bind = engine
+    DBSession = sessionmaker()
+    DBSession.bind = engine
+    session = DBSession()
+
     subset_chosen = {}
 
     def iou(a, b):
