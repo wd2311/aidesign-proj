@@ -6,7 +6,7 @@ const { Title, Text } = Typography;
 function generateQuery(mealPlan, allergys, pantry) {
   const mealPlanString =
     mealPlan.length > 0
-      ? mealPlan.map(meal => meal.recipe.id).join(";;;")
+      ? mealPlan.map(meal => meal.recipe.recipe_id).join(";;;")
       : "1;;;2;;;3;;;4";
   const allergyString = allergys.join(";;;");
   const pantryString = pantry.join(";;;");

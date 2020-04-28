@@ -11,7 +11,14 @@ const { Option } = Select;
 function MealMiniCell(props) {
   console.log(props);
   const { recipe, onClick } = props;
-  const { title, id, src } = recipe;
+  const {
+    id,
+    recipe_name: title,
+    desc,
+    rating,
+    recipe_img,
+    ingredients
+  } = props.recipe;
   const tmpImg = [
     "alfredo",
     "bolognese",
@@ -24,9 +31,9 @@ function MealMiniCell(props) {
     "thai",
     "tikka"
   ];
-  const imSrc =
-    src ?? tmpImg[Math.floor(Math.random() * tmpImg.length)] + ".jpg";
-
+  const imsrc =
+    recipe_img ?? tmpImg[Math.floor(Math.random() * tmpImg.length)] + ".jpg";
+  const recipe_rating = rating ?? Math.floor(Math.random() * 6);
   return (
     <div
       style={{
@@ -37,7 +44,7 @@ function MealMiniCell(props) {
       }}
     >
       <Avatar
-        src={imSrc}
+        src={imsrc}
         style={{
           flex: "0 0 20px",
           height: "20px",
@@ -73,6 +80,7 @@ function SummaryPage(props) {
   const { onClicked, mealPlan } = props;
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const map = convertMealPlanToHash(mealPlan);
+  console.log(mealPlan);
   return (
     <div
       style={{
@@ -154,9 +162,35 @@ function SummaryPage(props) {
                 recipes.map(recipe => (
                   <React.Fragment>
                     {idx !== 0 && <Divider />}
-                    {recipe.ingredients.map(ingredient => (
-                      <Paragraph ellipsis>{ingredient}</Paragraph>
-                    ))}
+                    {recipe.ingredients.map((ing, index) => {
+                      const [fullname, ingredient, count, unit, price] = ing;
+                      return (
+                        <div
+                          style={{
+                            flex: "1 1 auto",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                            padding: "5px",
+                            ...(index % 2 && { backgroundColor: "WhiteSmoke" })
+                          }}
+                        >
+                          <Paragraph
+                            style={{ flex: "0 0 auto", margin: 0 }}
+                            ellipsis
+                          >
+                            <strong>
+                              {count && count + " "}
+                              {unit && unit + " "}
+                            </strong>
+                            {ingredient}
+                          </Paragraph>
+                          <Paragraph style={{ color: "green", margin: 0 }}>
+                            {price}
+                          </Paragraph>
+                        </div>
+                      );
+                    })}
                   </React.Fragment>
                 ))
               );

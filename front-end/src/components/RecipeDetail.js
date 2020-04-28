@@ -14,6 +14,19 @@ function ModalContent(props) {
     recipe_img,
     ingredients
   } = props.recipe;
+
+  const parseIngredients = ingredients.map(
+    ([fullname, ingredient, count, unit, price]) => {
+      return {
+        fullname,
+        ingredient,
+        count,
+        unit,
+        price
+      };
+    }
+  );
+  console.log(parseIngredients);
   const tmpImg = [
     "alfredo",
     "bolognese",
@@ -84,11 +97,32 @@ function ModalContent(props) {
             overflow: "auto"
           }}
         >
-          {ingredients.map(ingredient => (
-            <Paragraph style={{ flex: "0 0 auto" }} ellipsis>
-              {ingredient}
-            </Paragraph>
-          ))}
+          {parseIngredients.map((ingredientObj, index) => {
+            const { fullname, ingredient, count, unit, price } = ingredientObj;
+            return (
+              <div
+                style={{
+                  flex: "1 1 auto",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  padding: "5px",
+                  ...(index % 2 && { backgroundColor: "WhiteSmoke" })
+                }}
+              >
+                <Paragraph style={{ flex: "0 0 auto", margin: 0 }} ellipsis>
+                  <strong>
+                    {count && count + " "}
+                    {unit && unit + " "}
+                  </strong>
+                  {ingredient}
+                </Paragraph>
+                <Paragraph style={{ color: "green", margin: 0 }}>
+                  {price}
+                </Paragraph>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

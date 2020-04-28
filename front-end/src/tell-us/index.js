@@ -438,7 +438,7 @@ function TellUsPage(props) {
     fetch("http://localhost:5000/get_all_ingredient_names/")
       .then(res => res.json())
       .then(response => {
-        const fetchedPantry = response["recommendations"];
+        const fetchedPantry = response["ingredients"];
         setPantryOptions(fetchedPantry);
       });
   }, []);
@@ -526,7 +526,7 @@ function TellUsPage(props) {
             onChange={value => setPantry(value)}
             size="large"
           >
-            {pantryOptions.map(ingredient => (
+            {pantryOptions.map(([id, ingredient]) => (
               <Option key={ingredient}>{ingredient}</Option>
             ))}
           </Select>
