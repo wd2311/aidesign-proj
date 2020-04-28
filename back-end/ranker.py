@@ -16,13 +16,13 @@ DBSession.bind = engine
 session = DBSession()
 
 
-model = word2vec.Word2Vec.load("vectors/recipes.model")
-indexer = AnnoyIndexer(model, 2)
+# model = word2vec.Word2Vec.load("vectors/recipes.model")
+# indexer = AnnoyIndexer(model, 2)
 
-top_50 = model.wv.most_similar('1', topn=50, indexer=indexer)
+# top_50 = model.wv.most_similar('1', topn=50, indexer=indexer)
+# top_50 = [id[0] for id in top_50]
 
-def ranking(top_50, num_of_samples, recipes_returned):
-    ids = [id[0] for id in top_50]
+def ranking(ids_top_50, num_of_samples, recipes_returned):
     subset_chosen = {}
 
     def iou(a, b):
@@ -33,7 +33,7 @@ def ranking(top_50, num_of_samples, recipes_returned):
         return intersection / union
 
     for i in range(num_of_samples):
-        ids_selected = random.sample(ids, recipes_returned) ### randomly select a subset from CG candidates
+        ids_selected = random.sample(ids_top50, recipes_returned) ### randomly select a subset from CG candidates
 
         candidates = []
         for each_recipe in ids_selected:
