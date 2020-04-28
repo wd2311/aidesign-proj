@@ -56,13 +56,19 @@ def get_recs():
     rec_ids = query(recipes, allergies)
     recipe_query = session.query(Recipe).filter(Recipe.recipe_id.in_(tuple(rec_ids)))
     recs = [row.__dict__ for row in recipe_query.all()]
+
     clean_recs = []
     for row in recipe_query.all():
         clean_row = {}
         for key in row.__dict__:
             if key != '_sa_instance_state':
                 clean_row[key] = row.__dict__[key]
+
+        ingredient_query = session.query(RecipeIngredient.complete_input, Ingredient.price).filter(RecipeIngredient.recipe_id==clean_row['recipe_id']).filter(RecipeIngredient.ingredient_id == Ingredient.ingr_id)
+        clean_row['ingredients'] = ingredient_query.all()
+
         clean_recs.append(clean_row)
+
     return jsonify({'recommendations': clean_recs})
 
 @app.route('/get_all_ingredient_names/')
