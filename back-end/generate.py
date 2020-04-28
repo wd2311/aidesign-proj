@@ -25,7 +25,7 @@ print("Recipe groups stored")
 
 
 # Set values for NN parameters
-num_features = 200    # Word vector dimensionality                      
+num_features = 150    # Word vector dimensionality                      
 min_word_count = 1
 num_workers = 4       # Number of CPUs
 context = num_recipes # Context window size;
