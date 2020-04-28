@@ -65,6 +65,7 @@ function Content() {
       }}
     >
       <Navbar />
+
       <CSSTransition
         in={ipage === 1}
         classNames="page"

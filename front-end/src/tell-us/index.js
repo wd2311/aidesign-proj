@@ -491,7 +491,7 @@ function TellUsPage(props) {
               Do you have any dietary needs?
             </Text>
             <Popover
-              title="Do we support other dietary needs?"
+              title="Do you have additional needs?"
               placement="bottom"
               arrowPointAtCenter
               overlayStyle={{ maxWidth: "20%" }}
